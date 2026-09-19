@@ -1,0 +1,123 @@
+:root {
+  --color-ink: #1b2430;
+  --color-paper: #f5f6f8;
+  --color-seal-red: #8c2f39;
+  --color-verified-teal: #2f6b5e;
+  --color-border: #d8dbe0;
+  --color-muted: #5a6270;
+  --color-surface: #ffffff;
+
+  --font-sans:
+    "IBM Plex Sans Arabic", "IBM Plex Sans", "Noto Sans Arabic", "Noto Sans", system-ui,
+    -apple-system, "Segoe UI", Tahoma, Arial, sans-serif;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-size: 15px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+input {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* Text blocks whose language is determined at render time (Arabic vs English content) */
+.text-rtl {
+  direction: rtl;
+  text-align: right;
+}
+
+.text-ltr {
+  direction: ltr;
+  text-align: left;
+}
+
+.muted {
+  color: var(--color-muted);
+}
+
+.hairline-box {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: 2px var(--space-2);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  border: 1px solid currentColor;
+}
+
+.status-badge--match {
+  color: var(--color-verified-teal);
+}
+
+.status-badge--discrepancy {
+  color: var(--color-seal-red);
+}
+
+.status-badge--minor {
+  color: var(--color-muted);
+}
+
+.status-badge--uncertain {
+  color: var(--color-muted);
+}
+
+.loading-note,
+.error-note {
+  padding: var(--space-4);
+  font-size: 14px;
+  color: var(--color-muted);
+}
+
+.error-note {
+  color: var(--color-seal-red);
+}

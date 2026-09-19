@@ -1,0 +1,82 @@
+.extraction-view {
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+}
+
+.extraction-view__header,
+.extraction-view__row {
+  display: grid;
+  grid-template-columns: 180px 1fr 1fr;
+}
+
+.extraction-view__header {
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-paper);
+}
+
+.extraction-view__col-label {
+  padding: var(--space-2) var(--space-4);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.extraction-view__row {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.extraction-view__row:last-child {
+  border-bottom: none;
+}
+
+.extraction-view__field-name {
+  padding: var(--space-4);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--color-muted);
+  border-right: 1px solid var(--color-border);
+}
+
+.extraction-view__cell {
+  padding: var(--space-4);
+  font-size: 14px;
+  border-right: 1px solid var(--color-border);
+}
+
+.extraction-view__cell:last-child {
+  border-right: none;
+}
+
+.field-value-list {
+  margin: 0;
+  padding-inline-start: 1.1em;
+}
+
+.field-value-list li + li {
+  margin-top: var(--space-2);
+}
+
+.field-value-object {
+  margin: 0;
+}
+
+.field-value-object__row {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.field-value-object__row + .field-value-object__row {
+  margin-top: var(--space-1);
+}
+
+.field-value-object dt {
+  color: var(--color-muted);
+  font-size: 12px;
+  flex-shrink: 0;
+}
+
+.field-value-object dd {
+  margin: 0;
+}
