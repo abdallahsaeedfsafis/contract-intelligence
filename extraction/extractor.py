@@ -105,6 +105,14 @@ def _build_system_prompt() -> str:
         "- Extract values only from the text provided; never invent information.\n"
         "- If a field is not present or cannot be determined from the text, use null "
         "(or an empty array for array fields).\n"
+        "- Stay strictly literal when paraphrasing free-text fields (payment_terms, governing_law, "
+        "termination_clauses, penalty_clauses, language_precedence_clause, duration). Do not add "
+        "descriptive qualifiers, scope words, or interpretive detail that is not explicitly stated - "
+        "e.g. if the source says a jurisdiction \"has\" jurisdiction, do not write \"exclusive\" "
+        "jurisdiction unless the source itself says so; if the source says a penalty applies to a "
+        "breach of \"obligations\", do not narrow that to \"confidentiality obligations\" unless the "
+        "source itself says so. When in doubt, paraphrase closer to the source wording rather than "
+        "adding clarifying detail a human reader might infer from context.\n"
         "- financial_value: capture ANY monetary figure stated anywhere in the contract, not just "
         "a recurring salary or rent. This includes one-time amounts such as penalties, liquidated "
         "damages, or security deposits - e.g. an NDA with no recurring payment but a liquidated "
@@ -145,6 +153,10 @@ def extract_contract_data(contract_text: str, language: str) -> dict:
     config = types.GenerateContentConfig(
         system_instruction=system_prompt,
         response_mime_type="application/json",
+        # Deterministic output reduces wording variance between runs and between the
+        # Arabic/English extractions of the same underlying fact, which otherwise shows
+        # up downstream as spurious cross-lingual "discrepancies" (see alignment/aligner.py).
+        temperature=0,
     )
 
     def _call() -> str:

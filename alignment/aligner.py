@@ -36,10 +36,26 @@ Decide whether the two values express the SAME substantive meaning.
 
 Distinguish:
 - "Different wording, same meaning": different date formats, "30 days" vs "thirty (30) days", a more \
-verbose vs terser phrasing of the identical clause, ordinary translation variance. Judge these as a match.
+verbose vs terser phrasing of the identical clause, ordinary translation variance, paraphrasing, or an \
+added descriptive qualifier that does not change what is actually owed, promised, or restricted. Judge \
+these as a match EVEN IF the wording, length, or level of detail differs, as long as the underlying \
+obligation, amount, date, condition, or party is unchanged. Being more verbose or more terse is never by \
+itself a reason to call something a discrepancy.
 - "Different substance": different amounts, different currencies, different deadlines/durations, \
-different obligations or conditions, or one side stating something material the other omits entirely. \
-Judge these as a discrepancy.
+different obligations or conditions, a different party, or one side stating something material the \
+other omits entirely. Only judge these as a discrepancy when the actual obligation, amount, date, \
+condition, or party genuinely changes - not merely how it is phrased.
+
+Examples:
+- "confidential and exclusive information" vs "confidential information" -> match, IF both are clearly \
+referring to the same scope of protected information in context; the extra adjective is descriptive \
+color, not a change in what is protected.
+- "the Employer may terminate immediately for gross misconduct" vs "immediate termination is permitted \
+in the event of proven gross misconduct by the Employee" -> match; same condition, different phrasing.
+- "30 days' notice" vs "45 days' notice" -> discrepancy (significant); the actual deadline changed.
+- "AED 16,000 per month" vs "AED 18,000 per month" -> discrepancy (significant); the actual amount changed.
+
+When in doubt between "match" and a "minor" discrepancy for a purely stylistic difference, prefer "match".
 
 Return ONLY a single JSON object with exactly these fields:
 - "status": one of "match" (same substance), "discrepancy" (different substance), or "uncertain" \
