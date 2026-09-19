@@ -8,9 +8,9 @@
   "effective_date": "2024-07-01",
   "duration": "Confidentiality obligation of 4 years from the date of signing.",
   "financial_value": {
-    "amount": null,
-    "currency": null,
-    "payment_terms": "Not applicable — non-monetary confidentiality agreement. A liquidated damages penalty applies in case of breach (see penalty_clauses)."
+    "amount": 200000,
+    "currency": "EGP",
+    "payment_terms": "One-time liquidated damages of EGP 200,000 payable in the event of a breach of confidentiality; this NDA has no recurring monetary value."
   },
   "termination_clauses": [
     "Terminates automatically upon expiry of the 4-year period."

@@ -8,9 +8,9 @@
   "effective_date": "2023-09-20",
   "duration": "2 years from the date of signing, with confidentiality obligations surviving for an additional 2 years after termination.",
   "financial_value": {
-    "amount": null,
-    "currency": null,
-    "payment_terms": "Not applicable — non-monetary confidentiality agreement. A liquidated damages penalty applies in case of breach (see penalty_clauses)."
+    "amount": 100000,
+    "currency": "SAR",
+    "payment_terms": "One-time liquidated damages of SAR 100,000 payable in the event of a breach of confidentiality; this NDA has no recurring monetary value."
   },
   "termination_clauses": [
     "Either party may terminate the discussions with 15 days' written notice."

@@ -105,6 +105,18 @@ def _build_system_prompt() -> str:
         "- Extract values only from the text provided; never invent information.\n"
         "- If a field is not present or cannot be determined from the text, use null "
         "(or an empty array for array fields).\n"
+        "- financial_value: capture ANY monetary figure stated anywhere in the contract, not just "
+        "a recurring salary or rent. This includes one-time amounts such as penalties, liquidated "
+        "damages, or security deposits - e.g. an NDA with no recurring payment but a liquidated "
+        "damages clause of USD 50,000 should report amount: 50000, currency: \"USD\". Only use "
+        "null for amount and currency if the contract mentions no monetary figure of any kind.\n"
+        "- List fields (parties, termination_clauses, penalty_clauses): return an empty array only "
+        "if the contract truly does not address that category at all. If the contract contains any "
+        "relevant sentence on the topic - even a statement that no penalty applies, or that the "
+        "matter is governed by statute rather than a contract-specific clause - extract that "
+        "sentence as one list item rather than returning an empty array.\n"
+        "- duration: extract every relevant sub-detail mentioned, not just the base term - include "
+        "any probationary period, notice period, or renewal/auto-renewal terms stated alongside it.\n"
         "- Return raw JSON only: no markdown code fences, no commentary, no explanations.\n"
     )
 

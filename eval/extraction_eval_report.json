@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T16:26:31Z",
+  "generated_at": "2026-09-19T16:35:50Z",
   "model": "gemini-3.1-flash-lite",
   "contracts_found": 15,
   "contracts_failed": [],
@@ -11,18 +11,18 @@
         "accuracy_pct": 100.0
       },
       "financial_value.amount": {
-        "correct": 8,
+        "correct": 12,
         "total": 13,
-        "accuracy_pct": 61.5
+        "accuracy_pct": 92.3
       },
       "financial_value.currency": {
-        "correct": 7,
+        "correct": 10,
         "total": 13,
-        "accuracy_pct": 53.8
+        "accuracy_pct": 76.9
       },
       "governing_law": {
-        "correct": 9,
-        "total": 9,
+        "correct": 7,
+        "total": 7,
         "accuracy_pct": 100.0
       },
       "language_precedence_clause": {
@@ -41,9 +41,9 @@
         "accuracy_pct": 85.7
       },
       "penalty_clauses": {
-        "correct": 11,
+        "correct": 15,
         "total": 15,
-        "accuracy_pct": 73.3
+        "accuracy_pct": 100.0
       }
     },
     "english": {
@@ -53,14 +53,14 @@
         "accuracy_pct": 100.0
       },
       "financial_value.amount": {
-        "correct": 10,
+        "correct": 12,
         "total": 13,
-        "accuracy_pct": 76.9
+        "accuracy_pct": 92.3
       },
       "financial_value.currency": {
-        "correct": 11,
+        "correct": 13,
         "total": 13,
-        "accuracy_pct": 84.6
+        "accuracy_pct": 100.0
       },
       "governing_law": {
         "correct": 15,
@@ -78,31 +78,23 @@
         "accuracy_pct": 100.0
       },
       "termination_clauses": {
-        "correct": 12,
+        "correct": 13,
         "total": 14,
-        "accuracy_pct": 85.7
+        "accuracy_pct": 92.9
       },
       "penalty_clauses": {
-        "correct": 12,
+        "correct": 14,
         "total": 15,
-        "accuracy_pct": 80.0
+        "accuracy_pct": 93.3
       }
     }
   },
   "overall_accuracy_pct": {
-    "arabic": 84.4,
-    "english": 91.3
+    "arabic": 94.4,
+    "english": 97.4
   },
   "extraction_issues": [
     {
-      "contract_id": "contract_01",
-      "language": "arabic",
-      "field": "penalty_clauses",
-      "issue": "incomplete extraction: expected 1 item(s), got 0 (missing 1)",
-      "extracted_count": 0,
-      "expected_count": 1
-    },
-    {
       "contract_id": "contract_02",
       "language": "arabic",
       "field": "financial_value.amount",
@@ -119,52 +111,12 @@
       "expected": 14000
     },
     {
-      "contract_id": "contract_04",
-      "language": "arabic",
-      "field": "penalty_clauses",
-      "issue": "incomplete extraction: expected 1 item(s), got 0 (missing 1)",
-      "extracted_count": 0,
-      "expected_count": 1
-    },
-    {
-      "contract_id": "contract_04",
-      "language": "english",
-      "field": "penalty_clauses",
-      "issue": "incomplete extraction: expected 1 item(s), got 0 (missing 1)",
-      "extracted_count": 0,
-      "expected_count": 1
-    },
-    {
-      "contract_id": "contract_05",
-      "language": "arabic",
-      "field": "penalty_clauses",
-      "issue": "incomplete extraction: expected 1 item(s), got 0 (missing 1)",
-      "extracted_count": 0,
-      "expected_count": 1
-    },
-    {
-      "contract_id": "contract_05",
-      "language": "english",
-      "field": "penalty_clauses",
-      "issue": "incomplete extraction: expected 1 item(s), got 0 (missing 1)",
-      "extracted_count": 0,
-      "expected_count": 1
-    },
-    {
-      "contract_id": "contract_06",
-      "language": "arabic",
-      "field": "financial_value.amount",
-      "issue": "value mismatch",
-      "extracted": 50000,
-      "expected": null
-    },
-    {
-      "contract_id": "contract_06",
+      "contract_id": "contract_03",
       "language": "arabic",
       "field": "financial_value.currency",
       "issue": "value mismatch",
-      "extracted": "USD",
-      "expected": null
+      "extracted": "ريال قطري",
+      "expected": "QAR"
     },
     {
       "contract_id": "contract_06",
@@ -173,30 +125,6 @@
       "issue": "incomplete extraction: expected 1 item(s), got 2 (missing 0)",
       "extracted_count": 2,
       "expected_count": 1
-    },
-    {
-      "contract_id": "contract_06",
-      "language": "english",
-      "field": "termination_clauses",
-      "issue": "incomplete extraction: expected 1 item(s), got 2 (missing 0)",
-      "extracted_count": 2,
-      "expected_count": 1
-    },
-    {
-      "contract_id": "contract_07",
-      "language": "arabic",
-      "field": "financial_value.amount",
-      "issue": "value mismatch",
-      "extracted": 25000,
-      "expected": null
-    },
-    {
-      "contract_id": "contract_07",
-      "language": "arabic",
-      "field": "financial_value.currency",
-      "issue": "value mismatch",
-      "extracted": "USD",
-      "expected": null
     },
     {
       "contract_id": "contract_07",
@@ -215,68 +143,20 @@
       "expected_count": 1
     },
     {
-      "contract_id": "contract_08",
-      "language": "arabic",
-      "field": "financial_value.amount",
-      "issue": "value mismatch",
-      "extracted": 100000,
-      "expected": null
-    },
-    {
-      "contract_id": "contract_08",
+      "contract_id": "contract_10",
       "language": "arabic",
       "field": "financial_value.currency",
       "issue": "value mismatch",
-      "extracted": "SAR",
-      "expected": null
+      "extracted": "درهم إماراتي",
+      "expected": "AED"
     },
     {
-      "contract_id": "contract_08",
+      "contract_id": "contract_10",
       "language": "english",
-      "field": "financial_value.amount",
-      "issue": "value mismatch",
-      "extracted": 100000,
-      "expected": null
-    },
-    {
-      "contract_id": "contract_08",
-      "language": "english",
-      "field": "financial_value.currency",
-      "issue": "value mismatch",
-      "extracted": "SAR",
-      "expected": null
-    },
-    {
-      "contract_id": "contract_09",
-      "language": "arabic",
-      "field": "financial_value.amount",
-      "issue": "value mismatch",
-      "extracted": 200000,
-      "expected": null
-    },
-    {
-      "contract_id": "contract_09",
-      "language": "arabic",
-      "field": "financial_value.currency",
-      "issue": "value mismatch",
-      "extracted": "EGP",
-      "expected": null
-    },
-    {
-      "contract_id": "contract_09",
-      "language": "english",
-      "field": "financial_value.amount",
-      "issue": "value mismatch",
-      "extracted": 200000,
-      "expected": null
-    },
-    {
-      "contract_id": "contract_09",
-      "language": "english",
-      "field": "financial_value.currency",
-      "issue": "value mismatch",
-      "extracted": "EGP",
-      "expected": null
+      "field": "penalty_clauses",
+      "issue": "incomplete extraction: expected 1 item(s), got 2 (missing 0)",
+      "extracted_count": 2,
+      "expected_count": 1
     },
     {
       "contract_id": "contract_12",
@@ -285,30 +165,6 @@
       "issue": "value mismatch",
       "extracted": "ريال قطري",
       "expected": "QAR"
-    },
-    {
-      "contract_id": "contract_14",
-      "language": "arabic",
-      "field": "financial_value.currency",
-      "issue": "value mismatch",
-      "extracted": "ريال سعودي",
-      "expected": "SAR"
-    },
-    {
-      "contract_id": "contract_14",
-      "language": "arabic",
-      "field": "penalty_clauses",
-      "issue": "incomplete extraction: expected 1 item(s), got 0 (missing 1)",
-      "extracted_count": 0,
-      "expected_count": 1
-    },
-    {
-      "contract_id": "contract_14",
-      "language": "english",
-      "field": "penalty_clauses",
-      "issue": "incomplete extraction: expected 1 item(s), got 0 (missing 1)",
-      "extracted_count": 0,
-      "expected_count": 1
     }
   ],
   "excluded_known_discrepancies": [
@@ -365,20 +221,28 @@
   ],
   "cross_lingual_not_comparable": [
     {
-      "contract_id": "contract_04",
+      "contract_id": "contract_01",
       "language": "arabic",
       "field": "governing_law",
       "reason": "cross-lingual comparison: extracted value is in a different script than the (English-only) ground truth",
-      "extracted": "قوانين جمهورية مصر العربية، وتختص محاكم القاهرة بالفصل في أي نزاع ينشأ عن هذا العقد.",
-      "expected": "Laws of the Arab Republic of Egypt; jurisdiction of the Cairo courts."
+      "extracted": "قوانين دولة الإمارات العربية المتحدة، وتختص محاكم دبي بالفصل في أي نزاع.",
+      "expected": "Laws of the United Arab Emirates; exclusive jurisdiction of the Dubai Courts."
     },
     {
-      "contract_id": "contract_05",
+      "contract_id": "contract_02",
       "language": "arabic",
       "field": "governing_law",
       "reason": "cross-lingual comparison: extracted value is in a different script than the (English-only) ground truth",
-      "extracted": "قوانين دولة الإمارات العربية المتحدة، وتختص محاكم أبوظبي بالفصل في أي نزاع.",
-      "expected": "Laws of the United Arab Emirates; jurisdiction of the Abu Dhabi Courts."
+      "extracted": "قوانين المملكة العربية السعودية، وتختص محكمة الرياض التجارية بالفصل في أي نزاع ينشأ عن هذا العقد.",
+      "expected": "Laws of the Kingdom of Saudi Arabia; jurisdiction of the Riyadh Commercial Court."
+    },
+    {
+      "contract_id": "contract_03",
+      "language": "arabic",
+      "field": "governing_law",
+      "reason": "cross-lingual comparison: extracted value is in a different script than the (English-only) ground truth",
+      "extracted": "قوانين دولة قطر، وتختص المحاكم القطرية بالفصل في أي نزاع.",
+      "expected": "Laws of the State of Qatar; jurisdiction of the Qatari courts."
     },
     {
       "contract_id": "contract_10",
@@ -401,15 +265,23 @@
       "language": "arabic",
       "field": "governing_law",
       "reason": "cross-lingual comparison: extracted value is in a different script than the (English-only) ground truth",
-      "extracted": "قوانين دولة قطر",
+      "extracted": "قوانين دولة قطر.",
       "expected": "Laws of the State of Qatar."
+    },
+    {
+      "contract_id": "contract_13",
+      "language": "arabic",
+      "field": "governing_law",
+      "reason": "cross-lingual comparison: extracted value is in a different script than the (English-only) ground truth",
+      "extracted": "تخضع هذه الاتفاقية لقوانين دولة الإمارات العربية المتحدة كما تُطبَّق في مركز دبي المالي العالمي.",
+      "expected": "Laws of the United Arab Emirates as applied in the DIFC."
     },
     {
       "contract_id": "contract_14",
       "language": "arabic",
       "field": "governing_law",
       "reason": "cross-lingual comparison: extracted value is in a different script than the (English-only) ground truth",
-      "extracted": "قوانين المملكة العربية السعودية.",
+      "extracted": "تخضع هذه الاتفاقية لقوانين المملكة العربية السعودية.",
       "expected": "Laws of the Kingdom of Saudi Arabia."
     }
   ]
