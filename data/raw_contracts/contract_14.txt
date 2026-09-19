@@ -1,0 +1,73 @@
+SYNTHETIC DOCUMENT — FOR SOFTWARE TESTING PURPOSES ONLY
+All parties, dates, and amounts in this document are fictional and do not represent real persons, companies, or transactions.
+وثيقة اصطناعية لأغراض اختبار البرمجيات فقط — جميع الأطراف والتواريخ والمبالغ الواردة في هذه الوثيقة خيالية ولا تمثل أشخاصاً أو شركات أو معاملات حقيقية.
+
+================================================================
+النسخة العربية
+================================================================
+
+اتفاقية تقديم خدمات
+
+أُبرمت هذه الاتفاقية بتاريخ 1 أبريل 2024 بين:
+
+العميل: شركة أطلس للصناعات (Atlas Manufacturing Co.) (ويُشار إليه فيما يلي بـ "العميل")
+مقدم الخدمة: وكالة كليرووتر للتسويق (Clearwater Marketing Agency) (ويُشار إليه فيما يلي بـ "مقدم الخدمة")
+
+المادة 1 - نطاق الخدمات
+يلتزم مقدم الخدمة بتقديم خدمات تسويق رقمي، تشمل إدارة حملات إعلانية وإدارة قنوات التواصل الاجتماعي، للعميل وفقاً للمواصفات المتفق عليها بين الطرفين.
+
+المادة 2 - مدة الاتفاقية
+ستة (6) أشهر من تاريخ العقد.
+
+المادة 3 - الأتعاب وشروط الدفع
+قيمة إجمالية للعقد قدرها مائة وثمانون ألف ريال سعودي (180,000 ريال سعودي)، تُدفع على ست دفعات شهرية متساوية.
+
+المادة 4 - الإنهاء
+يجوز لأي من الطرفين إنهاء الاتفاقية بإشعار خطي مسبق مدته خمسة عشر (15) يوماً.
+
+المادة 5 - الغرامات
+لا توجد غرامات محددة في هذه الاتفاقية.
+
+المادة 6 - القانون الحاكم
+تخضع هذه الاتفاقية لقوانين المملكة العربية السعودية.
+
+المادة 7 - أولوية اللغة
+تسود النسخة العربية في حال وجود أي تعارض بين النسختين.
+
+توقيع العميل: ______________
+توقيع مقدم الخدمة: ______________
+
+================================================================
+English Version
+================================================================
+
+Service Agreement
+
+This Agreement is made on April 1, 2024 between:
+
+Client: Atlas Manufacturing Co. (hereinafter the "Client")
+Service Provider: Clearwater Marketing Agency (hereinafter the "Service Provider")
+
+Article 1 - Scope of Services
+The Service Provider shall provide digital marketing services, including advertising campaign management and social media management, to the Client in accordance with the specifications agreed between the parties.
+
+Article 2 - Term
+Six (6) months from the date of this Agreement.
+
+Article 3 - Fees and Payment Terms
+Total contract value of one hundred eighty thousand Saudi Riyals (SAR 180,000), payable in six equal monthly installments.
+
+Article 4 - Termination
+Either party may terminate this Agreement with fifteen (15) days' prior written notice.
+
+Article 5 - Penalties
+No specific penalties are set out in this Agreement.
+
+Article 6 - Governing Law
+This Agreement is governed by the laws of the Kingdom of Saudi Arabia.
+
+Article 7 - Language Precedence
+The Arabic version shall prevail in the event of any conflict between the two versions.
+
+Client Signature: ______________
+Service Provider Signature: ______________

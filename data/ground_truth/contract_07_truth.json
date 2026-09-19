@@ -1,0 +1,24 @@
+{
+  "contract_id": "contract_07",
+  "contract_type": "nda",
+  "parties": [
+    { "name": "Amber Path Holdings", "role": "Disclosing Party" },
+    { "name": "Oasis Data Systems", "role": "Receiving Party" }
+  ],
+  "effective_date": "2024-05-01",
+  "duration": "Confidentiality obligation of 3 years from the date of signing. NOTE: This is the correct duration per the prevailing English version; the Arabic version incorrectly states 5 years (see data/ground_truth/discrepancies.json).",
+  "financial_value": {
+    "amount": null,
+    "currency": null,
+    "payment_terms": "Not applicable — non-monetary confidentiality agreement. A liquidated damages penalty applies in case of breach (see penalty_clauses)."
+  },
+  "termination_clauses": [
+    "Terminates upon expiry of the confidentiality period, or by 15 days' written notice from either party to end discussions."
+  ],
+  "penalty_clauses": [
+    "Liquidated damages of USD 25,000 payable in the event of a breach of confidentiality."
+  ],
+  "governing_law": "Laws of the State of Qatar.",
+  "language_precedence_clause": "In case of conflict, the English version shall prevail.",
+  "has_discrepancy": true
+}

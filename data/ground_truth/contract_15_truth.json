@@ -1,0 +1,24 @@
+{
+  "contract_id": "contract_15",
+  "contract_type": "service_agreement",
+  "parties": [
+    { "name": "Brightline Retail LLC", "role": "Client" },
+    { "name": "Vertex Engineering Consultants", "role": "Service Provider" }
+  ],
+  "effective_date": "2024-06-15",
+  "duration": "9 months from the date of this Agreement.",
+  "financial_value": {
+    "amount": 540000,
+    "currency": "EGP",
+    "payment_terms": "Total contract value, payable according to agreed project milestones."
+  },
+  "termination_clauses": [
+    "Either party may terminate with 20 days' prior written notice."
+  ],
+  "penalty_clauses": [
+    "Late delivery penalty of 2% of the contract value per week of delay in delivery."
+  ],
+  "governing_law": "Laws of the Arab Republic of Egypt.",
+  "language_precedence_clause": "In case of conflict, the Arabic version shall prevail.",
+  "has_discrepancy": false
+}

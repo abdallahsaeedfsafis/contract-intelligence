@@ -1,0 +1,24 @@
+{
+  "contract_id": "contract_02",
+  "contract_type": "employment",
+  "parties": [
+    { "name": "Desert Bloom Consulting LLC", "role": "Employer" },
+    { "name": "Salma Khaled", "role": "Employee" }
+  ],
+  "effective_date": "2024-03-01",
+  "duration": "Fixed-term, 2 years from the start date, renewable by mutual agreement of the parties.",
+  "financial_value": {
+    "amount": 14000,
+    "currency": "SAR",
+    "payment_terms": "Monthly salary plus a monthly housing allowance of SAR 2,000."
+  },
+  "termination_clauses": [
+    "Either party may terminate with 60 days' prior written notice."
+  ],
+  "penalty_clauses": [
+    "A penalty equivalent to one month's salary applies if the Employee terminates without observing the notice period."
+  ],
+  "governing_law": "Laws of the Kingdom of Saudi Arabia; jurisdiction of the Riyadh Commercial Court.",
+  "language_precedence_clause": "In case of conflict, the English version shall prevail.",
+  "has_discrepancy": false
+}

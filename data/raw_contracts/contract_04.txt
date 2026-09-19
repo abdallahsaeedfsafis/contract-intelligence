@@ -1,0 +1,79 @@
+SYNTHETIC DOCUMENT — FOR SOFTWARE TESTING PURPOSES ONLY
+All parties, dates, and amounts in this document are fictional and do not represent real persons, companies, or transactions.
+وثيقة اصطناعية لأغراض اختبار البرمجيات فقط — جميع الأطراف والتواريخ والمبالغ الواردة في هذه الوثيقة خيالية ولا تمثل أشخاصاً أو شركات أو معاملات حقيقية.
+
+================================================================
+النسخة العربية
+================================================================
+
+عقد عمل
+
+أُبرم هذا العقد بتاريخ 1 يونيو 2024 بين:
+
+الطرف الأول: شركة كريسنت باي للبرمجيات (Crescent Bay Software)، ومقرها القاهرة، جمهورية مصر العربية (ويُشار إليها فيما يلي بـ "صاحب العمل")
+
+الطرف الثاني: الآنسة ليلى حداد (Layla Haddad)، سورية الجنسية (ويُشار إليها فيما يلي بـ "الموظفة")
+
+وقد اتفق الطرفان على ما يلي:
+
+المادة 1 - موضوع العقد
+تعمل الموظفة لدى صاحب العمل بوظيفة محللة بيانات، وتلتزم بأداء المهام الموكلة إليها بموجب هذا العقد.
+
+المادة 2 - مدة العقد
+عقد محدد المدة لمدة سنة واحدة (1) قابل للتجديد.
+
+المادة 3 - الراتب والمزايا المالية
+تتقاضى الموظفة راتباً شهرياً إجمالياً قدره خمسة وعشرون ألف جنيه مصري (25,000 جنيه مصري).
+
+المادة 4 - إنهاء العقد
+يجوز لأي من الطرفين إنهاء العقد بإشعار خطي مسبق مدته ثلاثون (30) يوماً.
+
+المادة 5 - الغرامات والجزاءات
+لا توجد غرامات محددة في هذا العقد.
+
+المادة 6 - القانون الحاكم
+يخضع هذا العقد ويُفسَّر وفقاً لقوانين جمهورية مصر العربية، وتختص محاكم القاهرة بالفصل في أي نزاع ينشأ عن هذا العقد.
+
+المادة 7 - أولوية اللغة
+تسود النسخة العربية في حال وجود أي تعارض بين النسختين.
+
+توقيع صاحب العمل: ______________
+توقيع الموظفة: ______________
+
+================================================================
+English Version
+================================================================
+
+Employment Contract
+
+This Contract is made on June 1, 2024 between:
+
+Party One: Crescent Bay Software, located in Cairo, Arab Republic of Egypt (hereinafter the "Employer")
+
+Party Two: Ms. Layla Haddad, Syrian national (hereinafter the "Employee")
+
+The parties agree as follows:
+
+Article 1 - Subject of the Contract
+The Employee shall work for the Employer in the position of Data Analyst and shall perform the duties assigned under this Contract.
+
+Article 2 - Term
+Fixed-term contract for one (1) year, renewable.
+
+Article 3 - Salary and Financial Benefits
+The Employee shall receive a total monthly salary of twenty-five thousand Egyptian Pounds (EGP 25,000).
+
+Article 4 - Termination
+Either party may terminate the Contract with thirty (30) days' prior written notice.
+
+Article 5 - Penalties
+No specific penalties are set out in this Contract.
+
+Article 6 - Governing Law
+This Contract shall be governed by and construed in accordance with the laws of the Arab Republic of Egypt, with jurisdiction of the Cairo courts over any dispute arising from this Contract.
+
+Article 7 - Language Precedence
+The Arabic version shall prevail in the event of any conflict between the two versions.
+
+Employer Signature: ______________
+Employee Signature: ______________

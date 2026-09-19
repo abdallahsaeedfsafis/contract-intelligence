@@ -1,0 +1,67 @@
+SYNTHETIC DOCUMENT — FOR SOFTWARE TESTING PURPOSES ONLY
+All parties, dates, and amounts in this document are fictional and do not represent real persons, companies, or transactions.
+وثيقة اصطناعية لأغراض اختبار البرمجيات فقط — جميع الأطراف والتواريخ والمبالغ الواردة في هذه الوثيقة خيالية ولا تمثل أشخاصاً أو شركات أو معاملات حقيقية.
+
+================================================================
+النسخة العربية
+================================================================
+
+اتفاقية عدم إفصاح
+
+أُبرمت هذه الاتفاقية بتاريخ 1 يوليو 2024 بين:
+
+الطرف المُفصِح: شركة بالم جروف للابتكار (Palm Grove Innovations) (ويُشار إليه فيما يلي بـ "الطرف المُفصِح")
+الطرف المُستلِم: مكتب سيدار آند كو للاستشارات (Cedar & Co Advisory) (ويُشار إليه فيما يلي بـ "الطرف المُستلِم")
+
+المادة 1 - الغرض
+يرغب الطرفان في تبادل معلومات سرية بغرض تقديم استشارات استراتيجية متعلقة بخطة التوسع الإقليمي.
+
+المادة 2 - مدة الالتزام بالسرية
+أربع (4) سنوات من تاريخ التوقيع.
+
+المادة 3 - إنهاء الاتفاقية
+تنتهي الاتفاقية تلقائياً بانقضاء المدة المذكورة أعلاه.
+
+المادة 4 - الجزاءات والتعويضات
+في حال الإخلال بالتزام السرية، يستحق الطرف المُفصِح تعويضاً مقطوعاً قدره مائتا ألف جنيه مصري (200,000 جنيه مصري).
+
+المادة 5 - القانون الحاكم
+تخضع هذه الاتفاقية وتُفسَّر وفقاً لقوانين جمهورية مصر العربية.
+
+المادة 6 - أولوية اللغة
+تسود النسخة العربية في حال وجود أي تعارض بين النسختين.
+
+توقيع الطرف المُفصِح: ______________
+توقيع الطرف المُستلِم: ______________
+
+================================================================
+English Version
+================================================================
+
+Non-Disclosure Agreement
+
+This Agreement is made on July 1, 2024 between:
+
+Disclosing Party: Palm Grove Innovations (hereinafter the "Disclosing Party")
+Receiving Party: Cedar & Co Advisory (hereinafter the "Receiving Party")
+
+Article 1 - Purpose
+The parties wish to exchange confidential information for the purpose of providing strategic advisory services related to the regional expansion plan.
+
+Article 2 - Duration of Confidentiality Obligation
+Four (4) years from the date of signing.
+
+Article 3 - Termination
+The Agreement terminates automatically upon expiry of the period stated above.
+
+Article 4 - Penalties and Damages
+In the event of a breach of the confidentiality obligation, the Disclosing Party shall be entitled to liquidated damages of two hundred thousand Egyptian Pounds (EGP 200,000).
+
+Article 5 - Governing Law
+This Agreement shall be governed by and construed in accordance with the laws of the Arab Republic of Egypt.
+
+Article 6 - Language Precedence
+The Arabic version shall prevail in the event of any conflict between the two versions.
+
+Signature of Disclosing Party: ______________
+Signature of Receiving Party: ______________

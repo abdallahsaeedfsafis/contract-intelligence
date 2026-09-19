@@ -1,0 +1,25 @@
+{
+  "contract_id": "contract_10",
+  "contract_type": "lease",
+  "parties": [
+    { "name": "Al Zahra Real Estate LLC", "role": "Landlord" },
+    { "name": "Blue Wave Trading LLC", "role": "Tenant" }
+  ],
+  "effective_date": "2024-01-01",
+  "duration": "1 year from the date of this Agreement, renewable by agreement of the parties.",
+  "financial_value": {
+    "amount": 120000,
+    "currency": "AED",
+    "payment_terms": "Annual rent, payable in 4 equal quarterly installments."
+  },
+  "termination_clauses": [
+    "Tenant must notify intent not to renew at least 60 days before expiry.",
+    "Early termination without lawful cause results in forfeiture of two months' rent."
+  ],
+  "penalty_clauses": [
+    "Late payment penalty of 5% per month on any overdue installment."
+  ],
+  "governing_law": "Laws of the United Arab Emirates; jurisdiction of the Dubai Courts.",
+  "language_precedence_clause": "In case of conflict, the Arabic version shall prevail.",
+  "has_discrepancy": false
+}

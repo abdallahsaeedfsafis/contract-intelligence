@@ -1,0 +1,67 @@
+SYNTHETIC DOCUMENT — FOR SOFTWARE TESTING PURPOSES ONLY
+All parties, dates, and amounts in this document are fictional and do not represent real persons, companies, or transactions.
+وثيقة اصطناعية لأغراض اختبار البرمجيات فقط — جميع الأطراف والتواريخ والمبالغ الواردة في هذه الوثيقة خيالية ولا تمثل أشخاصاً أو شركات أو معاملات حقيقية.
+
+================================================================
+النسخة العربية
+================================================================
+
+اتفاقية عدم إفصاح
+
+أُبرمت هذه الاتفاقية بتاريخ 1 مايو 2024 بين:
+
+الطرف المُفصِح: شركة أمبر باث القابضة (Amber Path Holdings) (ويُشار إليه فيما يلي بـ "الطرف المُفصِح")
+الطرف المُستلِم: شركة أوايسيس لأنظمة البيانات (Oasis Data Systems) (ويُشار إليه فيما يلي بـ "الطرف المُستلِم")
+
+المادة 1 - الغرض
+يرغب الطرفان في تبادل معلومات سرية لغرض تقييم فرصة استثمارية مشتركة في قطاع الطاقة المتجددة.
+
+المادة 2 - مدة الالتزام بالسرية
+يلتزم الطرف المستلم بالحفاظ على سرية المعلومات لمدة خمس (5) سنوات من تاريخ توقيع هذه الاتفاقية.
+
+المادة 3 - إنهاء الاتفاقية
+تنتهي هذه الاتفاقية بانقضاء مدة السرية المذكورة أعلاه، أو بإشعار خطي مدته خمسة عشر (15) يوماً من أي طرف لإنهاء المفاوضات.
+
+المادة 4 - الجزاءات والتعويضات
+في حال الإخلال بالتزام السرية، يستحق الطرف المُفصِح تعويضاً مقطوعاً قدره خمسة وعشرون ألف دولار أمريكي (25,000 دولار أمريكي).
+
+المادة 5 - القانون الحاكم
+تخضع هذه الاتفاقية وتُفسَّر وفقاً لقوانين دولة قطر.
+
+المادة 6 - أولوية اللغة
+في حال وجود أي تعارض بين النسختين العربية والإنجليزية، تسود النسخة الإنجليزية.
+
+توقيع الطرف المُفصِح: ______________
+توقيع الطرف المُستلِم: ______________
+
+================================================================
+English Version
+================================================================
+
+Non-Disclosure Agreement
+
+This Agreement is made on May 1, 2024 between:
+
+Disclosing Party: Amber Path Holdings (hereinafter the "Disclosing Party")
+Receiving Party: Oasis Data Systems (hereinafter the "Receiving Party")
+
+Article 1 - Purpose
+The parties wish to exchange confidential information for the purpose of evaluating a joint investment opportunity in the renewable energy sector.
+
+Article 2 - Duration of Confidentiality Obligation
+The Receiving Party shall maintain the confidentiality of the information for a period of three (3) years from the date of signing this Agreement.
+
+Article 3 - Termination
+This Agreement terminates upon expiry of the confidentiality period stated above, or by fifteen (15) days' written notice from either party to end the discussions.
+
+Article 4 - Penalties and Damages
+In the event of a breach of the confidentiality obligation, the Disclosing Party shall be entitled to liquidated damages of twenty-five thousand US Dollars (USD 25,000).
+
+Article 5 - Governing Law
+This Agreement shall be governed by and construed in accordance with the laws of the State of Qatar.
+
+Article 6 - Language Precedence
+In the event of any conflict between the Arabic and English versions, the English version shall prevail.
+
+Signature of Disclosing Party: ______________
+Signature of Receiving Party: ______________

@@ -1,0 +1,24 @@
+{
+  "contract_id": "contract_06",
+  "contract_type": "nda",
+  "parties": [
+    { "name": "Nova Vista Ventures", "role": "Disclosing Party" },
+    { "name": "BrightStar Partners", "role": "Receiving Party" }
+  ],
+  "effective_date": "2024-04-10",
+  "duration": "Confidentiality obligation of 3 years from the date of signing.",
+  "financial_value": {
+    "amount": null,
+    "currency": null,
+    "payment_terms": "Not applicable — non-monetary confidentiality agreement. A liquidated damages penalty applies in case of breach (see penalty_clauses)."
+  },
+  "termination_clauses": [
+    "Terminates automatically upon expiry of the 3-year confidentiality period, or by mutual written consent of the parties."
+  ],
+  "penalty_clauses": [
+    "Liquidated damages of USD 50,000 payable by the Receiving Party in the event of breach."
+  ],
+  "governing_law": "Laws of the United Arab Emirates as applied in the DIFC; jurisdiction of the DIFC Courts.",
+  "language_precedence_clause": "In case of conflict, the Arabic version shall prevail.",
+  "has_discrepancy": false
+}

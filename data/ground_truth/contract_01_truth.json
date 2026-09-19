@@ -1,0 +1,25 @@
+{
+  "contract_id": "contract_01",
+  "contract_type": "employment",
+  "parties": [
+    { "name": "Al Noor Technologies FZE", "role": "Employer" },
+    { "name": "Yousef Al-Amin", "role": "Employee" }
+  ],
+  "effective_date": "2024-01-15",
+  "duration": "Indefinite duration, subject to a 90-day probationary period from the start date.",
+  "financial_value": {
+    "amount": 18000,
+    "currency": "AED",
+    "payment_terms": "Monthly salary, paid at the end of each calendar month. NOTE: This is the correct amount per the prevailing Arabic version; the English version incorrectly states AED 16,000 (see data/ground_truth/discrepancies.json)."
+  },
+  "termination_clauses": [
+    "Either party may terminate with 30 days' prior written notice.",
+    "The Employer may terminate immediately without notice for proven gross misconduct by the Employee."
+  ],
+  "penalty_clauses": [
+    "No specific financial penalties; end-of-service benefits apply per the UAE Federal Labour Law."
+  ],
+  "governing_law": "Laws of the United Arab Emirates; exclusive jurisdiction of the Dubai Courts.",
+  "language_precedence_clause": "In case of conflict, the Arabic version shall prevail.",
+  "has_discrepancy": true
+}

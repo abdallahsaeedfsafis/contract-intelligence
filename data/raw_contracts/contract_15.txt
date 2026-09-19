@@ -1,0 +1,73 @@
+SYNTHETIC DOCUMENT — FOR SOFTWARE TESTING PURPOSES ONLY
+All parties, dates, and amounts in this document are fictional and do not represent real persons, companies, or transactions.
+وثيقة اصطناعية لأغراض اختبار البرمجيات فقط — جميع الأطراف والتواريخ والمبالغ الواردة في هذه الوثيقة خيالية ولا تمثل أشخاصاً أو شركات أو معاملات حقيقية.
+
+================================================================
+النسخة العربية
+================================================================
+
+اتفاقية تقديم خدمات
+
+أُبرمت هذه الاتفاقية بتاريخ 15 يونيو 2024 بين:
+
+العميل: شركة برايتلاين للتجزئة (Brightline Retail LLC) (ويُشار إليه فيما يلي بـ "العميل")
+مقدم الخدمة: شركة فيرتكس للاستشارات الهندسية (Vertex Engineering Consultants) (ويُشار إليه فيما يلي بـ "مقدم الخدمة")
+
+المادة 1 - نطاق الخدمات
+يلتزم مقدم الخدمة بتقديم خدمات استشارات هندسية لتصميم وتجهيز متاجر التجزئة، للعميل وفقاً للمواصفات المتفق عليها بين الطرفين.
+
+المادة 2 - مدة الاتفاقية
+تسعة (9) أشهر من تاريخ العقد.
+
+المادة 3 - الأتعاب وشروط الدفع
+قيمة إجمالية للعقد قدرها خمسمائة وأربعون ألف جنيه مصري (540,000 جنيه مصري)، تُدفع وفق مراحل الإنجاز المتفق عليها.
+
+المادة 4 - الإنهاء
+يجوز لأي من الطرفين إنهاء الاتفاقية بإشعار خطي مسبق مدته عشرون (20) يوماً.
+
+المادة 5 - الغرامات
+تُفرض غرامة تأخير قدرها 2% من قيمة العقد عن كل أسبوع تأخير في التسليم.
+
+المادة 6 - القانون الحاكم
+تخضع هذه الاتفاقية لقوانين جمهورية مصر العربية.
+
+المادة 7 - أولوية اللغة
+تسود النسخة العربية في حال وجود أي تعارض بين النسختين.
+
+توقيع العميل: ______________
+توقيع مقدم الخدمة: ______________
+
+================================================================
+English Version
+================================================================
+
+Service Agreement
+
+This Agreement is made on June 15, 2024 between:
+
+Client: Brightline Retail LLC (hereinafter the "Client")
+Service Provider: Vertex Engineering Consultants (hereinafter the "Service Provider")
+
+Article 1 - Scope of Services
+The Service Provider shall provide engineering consultancy services for the design and fit-out of retail stores to the Client in accordance with the specifications agreed between the parties.
+
+Article 2 - Term
+Nine (9) months from the date of this Agreement.
+
+Article 3 - Fees and Payment Terms
+Total contract value of five hundred forty thousand Egyptian Pounds (EGP 540,000), payable according to agreed project milestones.
+
+Article 4 - Termination
+Either party may terminate this Agreement with twenty (20) days' prior written notice.
+
+Article 5 - Penalties
+A late delivery penalty of 2% of the contract value applies for each week of delay in delivery.
+
+Article 6 - Governing Law
+This Agreement is governed by the laws of the Arab Republic of Egypt.
+
+Article 7 - Language Precedence
+The Arabic version shall prevail in the event of any conflict between the two versions.
+
+Client Signature: ______________
+Service Provider Signature: ______________

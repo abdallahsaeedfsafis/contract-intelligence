@@ -1,0 +1,73 @@
+SYNTHETIC DOCUMENT — FOR SOFTWARE TESTING PURPOSES ONLY
+All parties, dates, and amounts in this document are fictional and do not represent real persons, companies, or transactions.
+وثيقة اصطناعية لأغراض اختبار البرمجيات فقط — جميع الأطراف والتواريخ والمبالغ الواردة في هذه الوثيقة خيالية ولا تمثل أشخاصاً أو شركات أو معاملات حقيقية.
+
+================================================================
+النسخة العربية
+================================================================
+
+اتفاقية تقديم خدمات
+
+أُبرمت هذه الاتفاقية بتاريخ 1 فبراير 2024 بين:
+
+العميل: مجموعة ميريديان الصحية (Meridian Health Group) (ويُشار إليه فيما يلي بـ "العميل")
+مقدم الخدمة: شركة كوانتم إيدج لخدمات تقنية المعلومات (Quantum Edge IT Services) (ويُشار إليه فيما يلي بـ "مقدم الخدمة")
+
+المادة 1 - نطاق الخدمات
+يلتزم مقدم الخدمة بتقديم خدمات دعم واستضافة تقنية المعلومات، بما في ذلك صيانة الخوادم والدعم الفني على مدار الساعة، للعميل وفقاً للمواصفات المتفق عليها بين الطرفين.
+
+المادة 2 - مدة الاتفاقية
+اثنا عشر (12) شهراً من تاريخ العقد، قابلة للتجديد التلقائي ما لم يُخطر أحد الطرفين الآخر برغبته في عدم التجديد.
+
+المادة 3 - الأتعاب وشروط الدفع
+قيمة إجمالية للعقد قدرها ستة وتسعون ألف دولار أمريكي (96,000 دولار أمريكي)، تُدفع على أقساط شهرية قدرها ثمانية آلاف دولار أمريكي (8,000 دولار أمريكي).
+
+المادة 4 - الإنهاء
+يجوز لأي من الطرفين إنهاء الاتفاقية بإشعار خطي مسبق مدته ثلاثون (30) يوماً.
+
+المادة 5 - الغرامات
+في حال تجاوز فترة التعطل المتفق عليها في اتفاقية مستوى الخدمة، يُستحق للعميل خصم قدره 2% من الرسم الشهري عن كل يوم تعطل إضافي.
+
+المادة 6 - القانون الحاكم
+تخضع هذه الاتفاقية لقوانين دولة الإمارات العربية المتحدة كما تُطبَّق في مركز دبي المالي العالمي.
+
+المادة 7 - أولوية اللغة
+تسود النسخة العربية في حال وجود أي تعارض بين النسختين.
+
+توقيع العميل: ______________
+توقيع مقدم الخدمة: ______________
+
+================================================================
+English Version
+================================================================
+
+Service Agreement
+
+This Agreement is made on February 1, 2024 between:
+
+Client: Meridian Health Group (hereinafter the "Client")
+Service Provider: Quantum Edge IT Services (hereinafter the "Service Provider")
+
+Article 1 - Scope of Services
+The Service Provider shall provide IT support and hosting services, including server maintenance and 24/7 technical support, to the Client in accordance with the specifications agreed between the parties.
+
+Article 2 - Term
+Twelve (12) months from the date of this Agreement, automatically renewable unless either party notifies the other of intent not to renew.
+
+Article 3 - Fees and Payment Terms
+Total contract value of ninety-six thousand US Dollars (USD 96,000), payable in monthly installments of eight thousand US Dollars (USD 8,000).
+
+Article 4 - Termination
+Either party may terminate this Agreement with thirty (30) days' prior written notice.
+
+Article 5 - Penalties
+If agreed SLA downtime thresholds are exceeded, the Client is entitled to a service credit of 2% of the monthly fee for each additional day of downtime.
+
+Article 6 - Governing Law
+This Agreement is governed by the laws of the United Arab Emirates as applied in the Dubai International Financial Centre.
+
+Article 7 - Language Precedence
+The Arabic version shall prevail in the event of any conflict between the two versions.
+
+Client Signature: ______________
+Service Provider Signature: ______________

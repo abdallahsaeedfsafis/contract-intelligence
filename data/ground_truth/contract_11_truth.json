@@ -1,0 +1,24 @@
+{
+  "contract_id": "contract_11",
+  "contract_type": "lease",
+  "parties": [
+    { "name": "Marina View Properties", "role": "Landlord" },
+    { "name": "Sandstone Media FZE", "role": "Tenant" }
+  ],
+  "effective_date": "2024-03-15",
+  "duration": "2 years from the date of this Agreement.",
+  "financial_value": {
+    "amount": 200000,
+    "currency": "AED",
+    "payment_terms": "Annual rent, payable in 2 equal installments. NOTE: This is the correct amount per the prevailing Arabic version; the English version incorrectly states AED 180,000 (see data/ground_truth/discrepancies.json)."
+  },
+  "termination_clauses": [
+    "Either party must give 90 days' notice before expiry if not renewing."
+  ],
+  "penalty_clauses": [
+    "Late payment surcharge of 10% of the overdue installment amount."
+  ],
+  "governing_law": "Laws of the United Arab Emirates; jurisdiction of the Dubai Courts.",
+  "language_precedence_clause": "In case of conflict, the Arabic version shall prevail.",
+  "has_discrepancy": true
+}

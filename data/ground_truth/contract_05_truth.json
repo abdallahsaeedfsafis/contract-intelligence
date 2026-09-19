@@ -1,0 +1,24 @@
+{
+  "contract_id": "contract_05",
+  "contract_type": "employment",
+  "parties": [
+    { "name": "Al-Maha Retail Group", "role": "Employer" },
+    { "name": "Ahmed Fathy", "role": "Employee" }
+  ],
+  "effective_date": "2024-02-15",
+  "duration": "Indefinite duration; subject to a 6-month probationary period from the start date.",
+  "financial_value": {
+    "amount": 9500,
+    "currency": "AED",
+    "payment_terms": "Monthly salary."
+  },
+  "termination_clauses": [
+    "Either party may terminate with 30 days' prior written notice."
+  ],
+  "penalty_clauses": [
+    "No specific penalties; end-of-service benefits apply per the UAE Federal Labour Law."
+  ],
+  "governing_law": "Laws of the United Arab Emirates; jurisdiction of the Abu Dhabi Courts.",
+  "language_precedence_clause": "In case of conflict, the English version shall prevail.",
+  "has_discrepancy": false
+}

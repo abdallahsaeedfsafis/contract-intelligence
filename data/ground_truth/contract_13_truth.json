@@ -1,0 +1,24 @@
+{
+  "contract_id": "contract_13",
+  "contract_type": "service_agreement",
+  "parties": [
+    { "name": "Meridian Health Group", "role": "Client" },
+    { "name": "Quantum Edge IT Services", "role": "Service Provider" }
+  ],
+  "effective_date": "2024-02-01",
+  "duration": "12 months from the date of this Agreement, automatically renewable unless either party notifies intent not to renew.",
+  "financial_value": {
+    "amount": 96000,
+    "currency": "USD",
+    "payment_terms": "Total contract value, payable in monthly installments of USD 8,000."
+  },
+  "termination_clauses": [
+    "Either party may terminate with 30 days' prior written notice."
+  ],
+  "penalty_clauses": [
+    "Service credit of 2% of the monthly fee for each additional day of downtime beyond the agreed SLA threshold."
+  ],
+  "governing_law": "Laws of the United Arab Emirates as applied in the DIFC.",
+  "language_precedence_clause": "In case of conflict, the Arabic version shall prevail.",
+  "has_discrepancy": false
+}

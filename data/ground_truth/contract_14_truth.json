@@ -1,0 +1,24 @@
+{
+  "contract_id": "contract_14",
+  "contract_type": "service_agreement",
+  "parties": [
+    { "name": "Atlas Manufacturing Co.", "role": "Client" },
+    { "name": "Clearwater Marketing Agency", "role": "Service Provider" }
+  ],
+  "effective_date": "2024-04-01",
+  "duration": "6 months from the date of this Agreement.",
+  "financial_value": {
+    "amount": 180000,
+    "currency": "SAR",
+    "payment_terms": "Total contract value, payable in 6 equal monthly installments."
+  },
+  "termination_clauses": [
+    "Either party may terminate with 15 days' prior written notice."
+  ],
+  "penalty_clauses": [
+    "No specific penalties are set out in this Agreement."
+  ],
+  "governing_law": "Laws of the Kingdom of Saudi Arabia.",
+  "language_precedence_clause": "In case of conflict, the Arabic version shall prevail.",
+  "has_discrepancy": false
+}

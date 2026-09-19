@@ -1,0 +1,50 @@
+{
+  "description": "Contracts among the 15 synthetic bilingual samples that contain a deliberate, meaningful discrepancy between their Arabic and English versions. Used to evaluate the contradiction-detection component (alignment/contradiction_checker.py). 'correct_value' reflects whichever language the contract's own precedence clause designates as prevailing.",
+  "discrepancy_count": 4,
+  "discrepancies": [
+    {
+      "contract_id": "contract_01",
+      "contract_type": "employment",
+      "field": "financial_value",
+      "clause_location": "Article 3 - Salary and Financial Benefits",
+      "arabic_states": "Monthly salary of AED 18,000 (ثمانية عشر ألف درهم إماراتي)",
+      "english_states": "Monthly salary of AED 16,000",
+      "prevailing_language": "Arabic",
+      "correct_value": "AED 18,000 per month",
+      "description": "The Arabic version specifies a monthly salary of AED 18,000, while the English version states AED 16,000 — a difference of AED 2,000/month. Since the contract's precedence clause designates Arabic as prevailing, AED 18,000 is the legally correct salary."
+    },
+    {
+      "contract_id": "contract_03",
+      "contract_type": "employment",
+      "field": "termination_clauses",
+      "clause_location": "Article 4 - Termination",
+      "arabic_states": "45 days' prior written notice (خمسة وأربعون يوماً)",
+      "english_states": "30 days' prior written notice",
+      "prevailing_language": "Arabic",
+      "correct_value": "45 days' prior written notice",
+      "description": "The Arabic version requires 45 days' notice to terminate, while the English version states only 30 days. Since Arabic prevails per the precedence clause, 45 days is the legally binding notice period."
+    },
+    {
+      "contract_id": "contract_07",
+      "contract_type": "nda",
+      "field": "duration",
+      "clause_location": "Article 2 - Duration of Confidentiality Obligation",
+      "arabic_states": "5 years from the date of signing (خمس سنوات)",
+      "english_states": "3 years from the date of signing",
+      "prevailing_language": "English",
+      "correct_value": "3 years from the date of signing",
+      "description": "The Arabic version obligates confidentiality for 5 years, while the English version states 3 years. Unlike the other discrepant contracts, this one designates English as prevailing, so 3 years is the legally correct duration."
+    },
+    {
+      "contract_id": "contract_11",
+      "contract_type": "lease",
+      "field": "financial_value",
+      "clause_location": "Article 3 - Rent",
+      "arabic_states": "Annual rent of AED 200,000 (مائتا ألف درهم إماراتي)",
+      "english_states": "Annual rent of AED 180,000",
+      "prevailing_language": "Arabic",
+      "correct_value": "AED 200,000 per year",
+      "description": "The Arabic version states an annual rent of AED 200,000, while the English version states AED 180,000 — a difference of AED 20,000/year. Since Arabic prevails per the precedence clause, AED 200,000 is the legally correct rent."
+    }
+  ]
+}

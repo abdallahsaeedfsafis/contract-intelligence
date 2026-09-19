@@ -1,0 +1,25 @@
+{
+  "contract_id": "contract_12",
+  "contract_type": "lease",
+  "parties": [
+    { "name": "Gulf Crest Holdings", "role": "Landlord" },
+    { "name": "Orchid Consulting Group", "role": "Tenant" }
+  ],
+  "effective_date": "2024-05-01",
+  "duration": "3 years from the date of this Agreement.",
+  "financial_value": {
+    "amount": 150000,
+    "currency": "QAR",
+    "payment_terms": "Annual rent."
+  },
+  "termination_clauses": [
+    "90 days' notice required before expiry if not renewing.",
+    "May be terminated for material breach after a 15-day cure period."
+  ],
+  "penalty_clauses": [
+    "Late fee of 3% per month on any overdue installment."
+  ],
+  "governing_law": "Laws of the State of Qatar.",
+  "language_precedence_clause": "In case of conflict, the English version shall prevail.",
+  "has_discrepancy": false
+}

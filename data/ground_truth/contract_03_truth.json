@@ -1,0 +1,24 @@
+{
+  "contract_id": "contract_03",
+  "contract_type": "employment",
+  "parties": [
+    { "name": "Falcon Ridge Logistics", "role": "Employer" },
+    { "name": "Omar Nasser", "role": "Employee" }
+  ],
+  "effective_date": "2023-11-01",
+  "duration": "Indefinite duration.",
+  "financial_value": {
+    "amount": 12500,
+    "currency": "QAR",
+    "payment_terms": "Monthly salary."
+  },
+  "termination_clauses": [
+    "Either party may terminate with 45 days' prior written notice. NOTE: This is the correct notice period per the prevailing Arabic version; the English version incorrectly states 30 days (see data/ground_truth/discrepancies.json)."
+  ],
+  "penalty_clauses": [
+    "No additional penalties beyond those set out under Qatari labour law."
+  ],
+  "governing_law": "Laws of the State of Qatar; jurisdiction of the Qatari courts.",
+  "language_precedence_clause": "In case of conflict, the Arabic version shall prevail.",
+  "has_discrepancy": true
+}

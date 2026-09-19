@@ -1,0 +1,67 @@
+SYNTHETIC DOCUMENT — FOR SOFTWARE TESTING PURPOSES ONLY
+All parties, dates, and amounts in this document are fictional and do not represent real persons, companies, or transactions.
+وثيقة اصطناعية لأغراض اختبار البرمجيات فقط — جميع الأطراف والتواريخ والمبالغ الواردة في هذه الوثيقة خيالية ولا تمثل أشخاصاً أو شركات أو معاملات حقيقية.
+
+================================================================
+النسخة العربية
+================================================================
+
+اتفاقية عدم إفصاح
+
+أُبرمت هذه الاتفاقية ("الاتفاقية") بتاريخ 10 أبريل 2024 بين:
+
+الطرف المُفصِح: شركة نوفا فيستا فنتشرز (Nova Vista Ventures) (ويُشار إليه فيما يلي بـ "الطرف المُفصِح")
+الطرف المُستلِم: شركة برايت ستار بارتنرز (BrightStar Partners) (ويُشار إليه فيما يلي بـ "الطرف المُستلِم")
+
+المادة 1 - الغرض
+يرغب الطرفان في تبادل معلومات سرية تتعلق بمشروع تعاون محتمل في مجال تطوير التطبيقات، ويلتزم الطرف المستلم بالحفاظ على سرية هذه المعلومات.
+
+المادة 2 - مدة الالتزام بالسرية
+يلتزم الطرف المستلم بالحفاظ على سرية المعلومات لمدة ثلاث (3) سنوات من تاريخ توقيع هذه الاتفاقية.
+
+المادة 3 - إنهاء الاتفاقية
+تنتهي هذه الاتفاقية تلقائياً بانقضاء مدة السرية المذكورة أعلاه، أو بموافقة خطية متبادلة بين الطرفين.
+
+المادة 4 - الجزاءات والتعويضات
+في حال إخلال الطرف المستلم بالتزاماته، يستحق الطرف المُفصِح تعويضاً مقطوعاً قدره خمسون ألف دولار أمريكي (50,000 دولار أمريكي).
+
+المادة 5 - القانون الحاكم
+تخضع هذه الاتفاقية وتُفسَّر وفقاً لقوانين دولة الإمارات العربية المتحدة كما تُطبَّق في مركز دبي المالي العالمي، وتختص محاكم مركز دبي المالي العالمي بالفصل في أي نزاع.
+
+المادة 6 - أولوية اللغة
+تسود النسخة العربية في حال وجود أي تعارض بين النسختين.
+
+توقيع الطرف المُفصِح: ______________
+توقيع الطرف المُستلِم: ______________
+
+================================================================
+English Version
+================================================================
+
+Non-Disclosure Agreement
+
+This Agreement is made on April 10, 2024 between:
+
+Disclosing Party: Nova Vista Ventures (hereinafter the "Disclosing Party")
+Receiving Party: BrightStar Partners (hereinafter the "Receiving Party")
+
+Article 1 - Purpose
+The parties wish to exchange confidential information relating to a potential collaboration project in the field of application development, and the Receiving Party agrees to maintain the confidentiality of such information.
+
+Article 2 - Duration of Confidentiality Obligation
+The Receiving Party shall maintain the confidentiality of the information for a period of three (3) years from the date of signing this Agreement.
+
+Article 3 - Termination
+This Agreement shall terminate automatically upon expiry of the confidentiality period stated above, or by mutual written consent of the parties.
+
+Article 4 - Penalties and Damages
+In the event the Receiving Party breaches its obligations, the Disclosing Party shall be entitled to liquidated damages of fifty thousand US Dollars (USD 50,000).
+
+Article 5 - Governing Law
+This Agreement shall be governed by and construed in accordance with the laws of the United Arab Emirates as applied in the Dubai International Financial Centre, with jurisdiction of the DIFC Courts over any dispute.
+
+Article 6 - Language Precedence
+The Arabic version shall prevail in the event of any conflict between the two versions.
+
+Signature of Disclosing Party: ______________
+Signature of Receiving Party: ______________

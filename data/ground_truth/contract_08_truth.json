@@ -1,0 +1,24 @@
+{
+  "contract_id": "contract_08",
+  "contract_type": "nda",
+  "parties": [
+    { "name": "Silverline Analytics", "role": "Disclosing Party" },
+    { "name": "Horizon Labs FZ-LLC", "role": "Receiving Party" }
+  ],
+  "effective_date": "2023-09-20",
+  "duration": "2 years from the date of signing, with confidentiality obligations surviving for an additional 2 years after termination.",
+  "financial_value": {
+    "amount": null,
+    "currency": null,
+    "payment_terms": "Not applicable — non-monetary confidentiality agreement. A liquidated damages penalty applies in case of breach (see penalty_clauses)."
+  },
+  "termination_clauses": [
+    "Either party may terminate the discussions with 15 days' written notice."
+  ],
+  "penalty_clauses": [
+    "Liquidated damages of SAR 100,000 payable in the event of a breach of confidentiality."
+  ],
+  "governing_law": "Laws of the Kingdom of Saudi Arabia.",
+  "language_precedence_clause": "In case of conflict, the Arabic version shall prevail.",
+  "has_discrepancy": false
+}
