@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
 import apiClient from "../api/client";
+import { useCachedFetch } from "../hooks/useCachedFetch";
 import { humanizeFieldName } from "../utils/text";
 import FieldValue from "./FieldValue";
 import "./DiscrepancyView.css";
@@ -19,31 +19,13 @@ function statusBadgeLabel(field) {
   return "Uncertain";
 }
 
-function DiscrepancyView({ contractId }) {
-  const [report, setReport] = useState(null);
-  const [status, setStatus] = useState("loading");
-
-  useEffect(() => {
-    setStatus("loading");
-    setReport(null);
-    let cancelled = false;
-
-    apiClient
-      .get(`/contracts/${contractId}/discrepancies`)
-      .then((response) => {
-        if (cancelled) return;
-        setReport(response.data);
-        setStatus("ready");
-      })
-      .catch(() => {
-        if (cancelled) return;
-        setStatus("error");
-      });
-
-    return () => {
-      cancelled = true;
-    };
-  }, [contractId]);
+function DiscrepancyView({ contractId, cached, onFetched }) {
+  const { data: report, status, errorInfo, retry } = useCachedFetch({
+    contractId,
+    cached,
+    onFetched,
+    fetcher: () => apiClient.get(`/contracts/${contractId}/discrepancies`).then((r) => r.data),
+  });
 
   if (status === "loading") {
     return (
@@ -54,8 +36,26 @@ function DiscrepancyView({ contractId }) {
     );
   }
 
+  if (status === "rate-limited") {
+    return (
+      <div className="rate-limit-note">
+        <p>{errorInfo.message}</p>
+        <button type="button" className="inline-retry-button" onClick={retry}>
+          Try again
+        </button>
+      </div>
+    );
+  }
+
   if (status === "error") {
-    return <p className="error-note">Discrepancy check failed. Check that the API server is running and reachable.</p>;
+    return (
+      <div className="error-note">
+        <p>Discrepancy check failed. Check that the API server is running and reachable.</p>
+        <button type="button" className="inline-retry-button" onClick={retry}>
+          Try again
+        </button>
+      </div>
+    );
   }
 
   return (

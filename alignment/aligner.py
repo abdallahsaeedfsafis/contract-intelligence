@@ -80,7 +80,9 @@ def _with_retry(fn, *args, **kwargs):
             last_error = exc
             if attempt < MAX_ATTEMPTS:
                 time.sleep(RETRY_DELAY_SECONDS)
-    raise RuntimeError(str(last_error)) from last_error
+    # Re-raise the original exception (not a wrapper) so callers - e.g. the API layer's
+    # rate-limit handling - can still inspect its real type (isinstance genai ClientError, .code, etc).
+    raise last_error
 
 
 def _schema_field_names() -> list:

@@ -1,34 +1,16 @@
-import { useEffect, useState } from "react";
 import apiClient from "../api/client";
+import { useCachedFetch } from "../hooks/useCachedFetch";
 import { humanizeFieldName } from "../utils/text";
 import FieldValue from "./FieldValue";
 import "./ExtractionView.css";
 
-function ExtractionView({ contractId }) {
-  const [data, setData] = useState(null);
-  const [status, setStatus] = useState("loading");
-
-  useEffect(() => {
-    setStatus("loading");
-    setData(null);
-    let cancelled = false;
-
-    apiClient
-      .post(`/contracts/${contractId}/extract`)
-      .then((response) => {
-        if (cancelled) return;
-        setData(response.data);
-        setStatus("ready");
-      })
-      .catch(() => {
-        if (cancelled) return;
-        setStatus("error");
-      });
-
-    return () => {
-      cancelled = true;
-    };
-  }, [contractId]);
+function ExtractionView({ contractId, cached, onFetched }) {
+  const { data, status, errorInfo, retry } = useCachedFetch({
+    contractId,
+    cached,
+    onFetched,
+    fetcher: () => apiClient.post(`/contracts/${contractId}/extract`).then((r) => r.data),
+  });
 
   if (status === "loading") {
     return (
@@ -39,8 +21,26 @@ function ExtractionView({ contractId }) {
     );
   }
 
+  if (status === "rate-limited") {
+    return (
+      <div className="rate-limit-note">
+        <p>{errorInfo.message}</p>
+        <button type="button" className="inline-retry-button" onClick={retry}>
+          Try again
+        </button>
+      </div>
+    );
+  }
+
   if (status === "error") {
-    return <p className="error-note">Extraction failed. Check that the API server is running and reachable.</p>;
+    return (
+      <div className="error-note">
+        <p>Extraction failed. Check that the API server is running and reachable.</p>
+        <button type="button" className="inline-retry-button" onClick={retry}>
+          Try again
+        </button>
+      </div>
+    );
   }
 
   const fields = Array.from(new Set([...Object.keys(data.arabic), ...Object.keys(data.english)]));

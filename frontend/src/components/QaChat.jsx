@@ -1,5 +1,6 @@
 import { useState } from "react";
 import apiClient from "../api/client";
+import { describeApiError } from "../utils/errors";
 import "./QaChat.css";
 
 function QaChat({ contractId }) {
@@ -26,8 +27,15 @@ function QaChat({ contractId }) {
           prev.map((m) => (m.id === id ? { ...m, state: "answered", result, notFound } : m)),
         );
       })
-      .catch(() => {
-        setMessages((prev) => (prev.map((m) => (m.id === id ? { ...m, state: "error" } : m))));
+      .catch((error) => {
+        const info = describeApiError(error);
+        setMessages((prev) =>
+          prev.map((m) =>
+            m.id === id
+              ? { ...m, state: info.kind === "rate-limit" ? "rate-limited" : "error", errorInfo: info }
+              : m,
+          ),
+        );
       })
       .finally(() => setPending(false));
   };
@@ -47,6 +55,7 @@ function QaChat({ contractId }) {
 
             {m.state === "pending" && <p className="loading-note">Thinking…</p>}
             {m.state === "error" && <p className="error-note">Could not reach the API.</p>}
+            {m.state === "rate-limited" && <p className="rate-limit-note">{m.errorInfo.message}</p>}
 
             {m.state === "answered" && (
               <div

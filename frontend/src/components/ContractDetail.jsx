@@ -13,6 +13,11 @@ const TABS = [
 function ContractDetail({ contractId }) {
   const [activeTab, setActiveTab] = useState("extraction");
 
+  // Per-contract result caches, kept at this level so switching tabs back and forth
+  // doesn't re-trigger a Gemini call for data already fetched this session.
+  const [extractionCache, setExtractionCache] = useState({});
+  const [discrepancyCache, setDiscrepancyCache] = useState({});
+
   return (
     <section className="contract-detail">
       <header className="contract-detail__header">
@@ -35,8 +40,24 @@ function ContractDetail({ contractId }) {
       </div>
 
       <div className="contract-detail__panel">
-        {activeTab === "extraction" && <ExtractionView contractId={contractId} />}
-        {activeTab === "discrepancies" && <DiscrepancyView contractId={contractId} />}
+        {activeTab === "extraction" && (
+          <ExtractionView
+            contractId={contractId}
+            cached={extractionCache[contractId]}
+            onFetched={(data) =>
+              setExtractionCache((prev) => ({ ...prev, [contractId]: data }))
+            }
+          />
+        )}
+        {activeTab === "discrepancies" && (
+          <DiscrepancyView
+            contractId={contractId}
+            cached={discrepancyCache[contractId]}
+            onFetched={(data) =>
+              setDiscrepancyCache((prev) => ({ ...prev, [contractId]: data }))
+            }
+          />
+        )}
         {activeTab === "ask" && <QaChat contractId={contractId} />}
       </div>
     </section>
