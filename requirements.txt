@@ -5,3 +5,4 @@ streamlit
 pypdf
 python-docx
 langdetect
+python-dotenv
