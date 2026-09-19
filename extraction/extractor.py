@@ -1,13 +1,49 @@
-"""Structured extraction of contract fields from bilingual (Arabic/English) contract text via the Claude API."""
+"""Structured extraction of contract fields from bilingual (Arabic/English) contract text.
+
+Currently using Gemini API as a free alternative; swap to Anthropic API (see commented
+reference below) once Anthropic credits are available.
+"""
 
 import json
 import os
 from pathlib import Path
 
-import anthropic
+from google import genai
+from google.genai import types
+
+# --- Anthropic reference (swap back in once credits are available) ---------------
+# import anthropic
+#
+# MODEL = "claude-sonnet-4-5"
+#
+# def extract_contract_data(contract_text: str, language: str) -> dict:
+#     sections = split_bilingual_contract(contract_text)
+#     section_text = sections[language]
+#     client = anthropic.Anthropic()
+#     system_prompt = _build_system_prompt()
+#
+#     def _call() -> str:
+#         response = client.messages.create(
+#             model=MODEL,
+#             max_tokens=2048,
+#             system=system_prompt,
+#             messages=[{"role": "user", "content": section_text}],
+#         )
+#         return response.content[0].text
+#
+#     raw = _call()
+#     try:
+#         return json.loads(_strip_code_fences(raw))
+#     except json.JSONDecodeError:
+#         return json.loads(_strip_code_fences(_call()))
+# -----------------------------------------------------------------------------------
 
 SCHEMA_PATH = Path(__file__).resolve().parent.parent / "data" / "schema.json"
-MODEL = "claude-sonnet-4-5"
+# "gemini-2.5-flash" returns 404 for this API key (Google reports it is no longer
+# available to new users, and "-flash-lite"/"-pro"/"-latest" variants either share
+# that deprecation or were overloaded with 503s at time of writing). This lite model
+# was confirmed reachable for this key; swap freely as availability changes.
+MODEL = "gemini-3.1-flash-lite"
 
 ARABIC_HEADER = "النسخة العربية"
 ENGLISH_HEADER = "English Version"
@@ -85,24 +121,27 @@ def _strip_code_fences(raw: str) -> str:
 
 
 def extract_contract_data(contract_text: str, language: str) -> dict:
-    """Extract schema fields from one language section of a contract via the Claude API."""
+    """Extract schema fields from one language section of a contract via the Gemini API."""
     if language not in ("arabic", "english"):
         raise ValueError('language must be "arabic" or "english"')
 
     sections = split_bilingual_contract(contract_text)
     section_text = sections[language]
 
-    client = anthropic.Anthropic()
+    client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
     system_prompt = _build_system_prompt()
+    config = types.GenerateContentConfig(
+        system_instruction=system_prompt,
+        response_mime_type="application/json",
+    )
 
     def _call() -> str:
-        response = client.messages.create(
+        response = client.models.generate_content(
             model=MODEL,
-            max_tokens=2048,
-            system=system_prompt,
-            messages=[{"role": "user", "content": section_text}],
+            contents=section_text,
+            config=config,
         )
-        return response.content[0].text
+        return response.text
 
     raw = _call()
     try:
@@ -117,8 +156,8 @@ if __name__ == "__main__":
 
     load_dotenv()
 
-    if not os.environ.get("ANTHROPIC_API_KEY"):
-        raise SystemExit("ANTHROPIC_API_KEY not found. Set it in .env or your environment.")
+    if not os.environ.get("GEMINI_API_KEY"):
+        raise SystemExit("GEMINI_API_KEY not found. Set it in .env or your environment.")
 
     contract_path = Path(__file__).resolve().parent.parent / "data" / "raw_contracts" / "contract_01.txt"
     contract_text = contract_path.read_text(encoding="utf-8")
