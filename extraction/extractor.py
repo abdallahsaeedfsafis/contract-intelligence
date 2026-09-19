@@ -48,6 +48,79 @@ MODEL = "gemini-3.1-flash-lite"
 ARABIC_HEADER = "النسخة العربية"
 ENGLISH_HEADER = "English Version"
 
+# Maps common Arabic/English currency names to their ISO 4217 code. Keys are matched as
+# case-insensitive substrings against the extracted currency value, longest-first, so a
+# more specific phrase (e.g. "Qatari Riyal") is checked before a shorter one that could
+# otherwise false-match inside it.
+CURRENCY_ALIASES = {
+    "AED": "AED",
+    "SAR": "SAR",
+    "QAR": "QAR",
+    "EGP": "EGP",
+    "USD": "USD",
+    "EUR": "EUR",
+    "GBP": "GBP",
+    "UAE Dirhams": "AED",
+    "UAE Dirham": "AED",
+    "Emirati Dirhams": "AED",
+    "Emirati Dirham": "AED",
+    "Saudi Riyals": "SAR",
+    "Saudi Riyal": "SAR",
+    "Saudi Arabian Riyal": "SAR",
+    "Qatari Riyals": "QAR",
+    "Qatari Riyal": "QAR",
+    "Egyptian Pounds": "EGP",
+    "Egyptian Pound": "EGP",
+    "United States Dollars": "USD",
+    "United States Dollar": "USD",
+    "US Dollars": "USD",
+    "US Dollar": "USD",
+    "American Dollars": "USD",
+    "American Dollar": "USD",
+    "Euros": "EUR",
+    "Euro": "EUR",
+    "British Pounds": "GBP",
+    "British Pound": "GBP",
+    "Pounds Sterling": "GBP",
+    "Pound Sterling": "GBP",
+    "الدرهم الإماراتي": "AED",
+    "دراهم إماراتية": "AED",
+    "درهم إماراتي": "AED",
+    "الريال السعودي": "SAR",
+    "ريالات سعودية": "SAR",
+    "ريال سعودي": "SAR",
+    "الريال القطري": "QAR",
+    "ريالات قطرية": "QAR",
+    "ريال قطري": "QAR",
+    "الجنيه المصري": "EGP",
+    "جنيهات مصرية": "EGP",
+    "جنيه مصري": "EGP",
+    "الدولار الأمريكي": "USD",
+    "دولارات أمريكية": "USD",
+    "دولار أمريكي": "USD",
+    "دولار امريكي": "USD",
+    "اليورو": "EUR",
+    "يورو": "EUR",
+    "الجنيه الإسترليني": "GBP",
+    "جنيه إسترليني": "GBP",
+    "جنيه استرليني": "GBP",
+}
+
+
+def normalize_currency(value: str) -> str:
+    """Map a currency name/phrase (Arabic or English) to its ISO 4217 code.
+
+    Leaves the value unchanged if it doesn't match any known alias, rather than guessing.
+    """
+    if not value or not isinstance(value, str):
+        return value
+
+    normalized = " ".join(value.strip().split()).lower()
+    for alias, code in sorted(CURRENCY_ALIASES.items(), key=lambda kv: -len(kv[0])):
+        if alias.lower() in normalized:
+            return code
+    return value
+
 
 def split_bilingual_contract(text: str) -> dict:
     """Split a contract's raw text into its Arabic and English sections."""
@@ -169,10 +242,16 @@ def extract_contract_data(contract_text: str, language: str) -> dict:
 
     raw = _call()
     try:
-        return json.loads(_strip_code_fences(raw))
+        result = json.loads(_strip_code_fences(raw))
     except json.JSONDecodeError:
         raw_retry = _call()
-        return json.loads(_strip_code_fences(raw_retry))
+        result = json.loads(_strip_code_fences(raw_retry))
+
+    financial_value = result.get("financial_value")
+    if isinstance(financial_value, dict) and financial_value.get("currency"):
+        financial_value["currency"] = normalize_currency(financial_value["currency"])
+
+    return result
 
 
 if __name__ == "__main__":

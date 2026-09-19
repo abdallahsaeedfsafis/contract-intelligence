@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-19T16:35:50Z",
+  "generated_at": "2026-09-19T16:56:42Z",
   "model": "gemini-3.1-flash-lite",
   "contracts_found": 15,
   "contracts_failed": [],
@@ -16,13 +16,13 @@
         "accuracy_pct": 92.3
       },
       "financial_value.currency": {
-        "correct": 10,
+        "correct": 13,
         "total": 13,
-        "accuracy_pct": 76.9
+        "accuracy_pct": 100.0
       },
       "governing_law": {
-        "correct": 7,
-        "total": 7,
+        "correct": 2,
+        "total": 2,
         "accuracy_pct": 100.0
       },
       "language_precedence_clause": {
@@ -36,14 +36,14 @@
         "accuracy_pct": 100.0
       },
       "termination_clauses": {
-        "correct": 12,
+        "correct": 13,
         "total": 14,
-        "accuracy_pct": 85.7
+        "accuracy_pct": 92.9
       },
       "penalty_clauses": {
-        "correct": 15,
+        "correct": 14,
         "total": 15,
-        "accuracy_pct": 100.0
+        "accuracy_pct": 93.3
       }
     },
     "english": {
@@ -83,15 +83,15 @@
         "accuracy_pct": 92.9
       },
       "penalty_clauses": {
-        "correct": 14,
+        "correct": 15,
         "total": 15,
-        "accuracy_pct": 93.3
+        "accuracy_pct": 100.0
       }
     }
   },
   "overall_accuracy_pct": {
-    "arabic": 94.4,
-    "english": 97.4
+    "arabic": 97.1,
+    "english": 98.3
   },
   "extraction_issues": [
     {
@@ -111,22 +111,6 @@
       "expected": 14000
     },
     {
-      "contract_id": "contract_03",
-      "language": "arabic",
-      "field": "financial_value.currency",
-      "issue": "value mismatch",
-      "extracted": "ريال قطري",
-      "expected": "QAR"
-    },
-    {
-      "contract_id": "contract_06",
-      "language": "arabic",
-      "field": "termination_clauses",
-      "issue": "incomplete extraction: expected 1 item(s), got 2 (missing 0)",
-      "extracted_count": 2,
-      "expected_count": 1
-    },
-    {
       "contract_id": "contract_07",
       "language": "arabic",
       "field": "termination_clauses",
@@ -145,26 +129,10 @@
     {
       "contract_id": "contract_10",
       "language": "arabic",
-      "field": "financial_value.currency",
-      "issue": "value mismatch",
-      "extracted": "درهم إماراتي",
-      "expected": "AED"
-    },
-    {
-      "contract_id": "contract_10",
-      "language": "english",
       "field": "penalty_clauses",
       "issue": "incomplete extraction: expected 1 item(s), got 2 (missing 0)",
       "extracted_count": 2,
       "expected_count": 1
-    },
-    {
-      "contract_id": "contract_12",
-      "language": "arabic",
-      "field": "financial_value.currency",
-      "issue": "value mismatch",
-      "extracted": "ريال قطري",
-      "expected": "QAR"
     }
   ],
   "excluded_known_discrepancies": [
@@ -225,7 +193,7 @@
       "language": "arabic",
       "field": "governing_law",
       "reason": "cross-lingual comparison: extracted value is in a different script than the (English-only) ground truth",
-      "extracted": "قوانين دولة الإمارات العربية المتحدة، وتختص محاكم دبي بالفصل في أي نزاع.",
+      "extracted": "يخضع هذا العقد ويُفسَّر وفقاً لقوانين دولة الإمارات العربية المتحدة، وتختص محاكم دبي دون غيرها بالفصل في أي نزاع ينشأ عن هذا العقد.",
       "expected": "Laws of the United Arab Emirates; exclusive jurisdiction of the Dubai Courts."
     },
     {
@@ -233,7 +201,7 @@
       "language": "arabic",
       "field": "governing_law",
       "reason": "cross-lingual comparison: extracted value is in a different script than the (English-only) ground truth",
-      "extracted": "قوانين المملكة العربية السعودية، وتختص محكمة الرياض التجارية بالفصل في أي نزاع ينشأ عن هذا العقد.",
+      "extracted": "يخضع هذا العقد ويُفسَّر وفقاً لقوانين المملكة العربية السعودية، وتختص محكمة الرياض التجارية بالفصل في أي نزاع ينشأ عن هذا العقد.",
       "expected": "Laws of the Kingdom of Saudi Arabia; jurisdiction of the Riyadh Commercial Court."
     },
     {
@@ -241,15 +209,47 @@
       "language": "arabic",
       "field": "governing_law",
       "reason": "cross-lingual comparison: extracted value is in a different script than the (English-only) ground truth",
-      "extracted": "قوانين دولة قطر، وتختص المحاكم القطرية بالفصل في أي نزاع.",
+      "extracted": "يخضع هذا العقد ويُفسَّر وفقاً لقوانين دولة قطر، وتختص المحاكم القطرية بالفصل في أي نزاع ينشأ عن هذا العقد.",
       "expected": "Laws of the State of Qatar; jurisdiction of the Qatari courts."
+    },
+    {
+      "contract_id": "contract_05",
+      "language": "arabic",
+      "field": "governing_law",
+      "reason": "cross-lingual comparison: extracted value is in a different script than the (English-only) ground truth",
+      "extracted": "يخضع هذا العقد ويُفسَّر وفقاً لقوانين دولة الإمارات العربية المتحدة، وتختص محاكم أبوظبي بالفصل في أي نزاع ينشأ عن هذا العقد.",
+      "expected": "Laws of the United Arab Emirates; jurisdiction of the Abu Dhabi Courts."
+    },
+    {
+      "contract_id": "contract_06",
+      "language": "arabic",
+      "field": "governing_law",
+      "reason": "cross-lingual comparison: extracted value is in a different script than the (English-only) ground truth",
+      "extracted": "تخضع هذه الاتفاقية وتُفسَّر وفقاً لقوانين دولة الإمارات العربية المتحدة كما تُطبَّق في مركز دبي المالي العالمي، وتختص محاكم مركز دبي المالي العالمي بالفصل في أي نزاع.",
+      "expected": "Laws of the United Arab Emirates as applied in the DIFC; jurisdiction of the DIFC Courts."
+    },
+    {
+      "contract_id": "contract_08",
+      "language": "arabic",
+      "field": "governing_law",
+      "reason": "cross-lingual comparison: extracted value is in a different script than the (English-only) ground truth",
+      "extracted": "قوانين المملكة العربية السعودية.",
+      "expected": "Laws of the Kingdom of Saudi Arabia."
+    },
+    {
+      "contract_id": "contract_09",
+      "language": "arabic",
+      "field": "governing_law",
+      "reason": "cross-lingual comparison: extracted value is in a different script than the (English-only) ground truth",
+      "extracted": "قوانين جمهورية مصر العربية.",
+      "expected": "Laws of the Arab Republic of Egypt."
     },
     {
       "contract_id": "contract_10",
       "language": "arabic",
       "field": "governing_law",
       "reason": "cross-lingual comparison: extracted value is in a different script than the (English-only) ground truth",
-      "extracted": "قوانين دولة الإمارات العربية المتحدة، وتختص محاكم دبي بالفصل في أي نزاع.",
+      "extracted": "يخضع هذا العقد لقوانين دولة الإمارات العربية المتحدة، وتختص محاكم دبي بالفصل في أي نزاع.",
       "expected": "Laws of the United Arab Emirates; jurisdiction of the Dubai Courts."
     },
     {
@@ -257,7 +257,7 @@
       "language": "arabic",
       "field": "governing_law",
       "reason": "cross-lingual comparison: extracted value is in a different script than the (English-only) ground truth",
-      "extracted": "قوانين دولة الإمارات العربية المتحدة، وتختص محاكم دبي بالفصل في أي نزاع.",
+      "extracted": "يخضع هذا العقد لقوانين دولة الإمارات العربية المتحدة، وتختص محاكم دبي بالفصل في أي نزاع.",
       "expected": "Laws of the United Arab Emirates; jurisdiction of the Dubai Courts."
     },
     {
@@ -283,6 +283,14 @@
       "reason": "cross-lingual comparison: extracted value is in a different script than the (English-only) ground truth",
       "extracted": "تخضع هذه الاتفاقية لقوانين المملكة العربية السعودية.",
       "expected": "Laws of the Kingdom of Saudi Arabia."
+    },
+    {
+      "contract_id": "contract_15",
+      "language": "arabic",
+      "field": "governing_law",
+      "reason": "cross-lingual comparison: extracted value is in a different script than the (English-only) ground truth",
+      "extracted": "قوانين جمهورية مصر العربية.",
+      "expected": "Laws of the Arab Republic of Egypt."
     }
   ]
 }
