@@ -2,7 +2,8 @@ anthropic
 google-genai
 sentence-transformers
 chromadb
-streamlit
+fastapi
+uvicorn
 pypdf
 python-docx
 langdetect
