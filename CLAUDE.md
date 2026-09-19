@@ -6,7 +6,7 @@ An AI system that analyzes bilingual (Arabic/English) contracts by:
 1. Extracting key clauses in a structured format
 2. Aligning clauses between the Arabic and English versions and detecting contradictions between them
 3. Answering questions about the contract (RAG) in either language
-4. Displaying results through a simple interface (Streamlit)
+4. Displaying results through a FastAPI backend with a React frontend
 
 **Problem it solves:** Existing contract-analysis tools (Ironclad, Luminance, etc.) are built primarily
 for English. Bilingual contracts (very common in the Arabic-speaking region) often contain discrepancies
@@ -44,8 +44,16 @@ contract-intelligence/
 │   ├── extraction_eval.py      # Precision/recall for extraction
 │   └── contradiction_eval.py   # Accuracy of contradiction detection
 │
-├── app/
-│   └── streamlit_app.py        # UI (upload contract, view clauses, ask questions, view contradictions)
+├── api/
+│   ├── main.py                 # FastAPI app entrypoint
+│   ├── routers/
+│   │   ├── extraction.py       # endpoints for uploading/extracting contracts
+│   │   ├── alignment.py        # endpoints for discrepancy detection
+│   │   └── qa.py                # endpoints for RAG Q&A
+│   └── schemas.py               # Pydantic request/response models
+│
+├── frontend/
+│   └── (React + Vite app, added in a later step)
 │
 └── CLAUDE.md                   # This file
 ```
@@ -61,6 +69,7 @@ contract-intelligence/
 | **Vector DB:** Chroma (local, simple for MVP) | Easy to run locally; can swap for Qdrant later if scale is needed |
 | **Chunking:** by contract structure (clause-by-clause), not fixed-size | The clause is the logical unit of meaning in contracts; random splitting breaks context |
 | **Guardrails:** "Not found in contract" instead of guessing | The system must never hallucinate legal information |
+| **Backend/Frontend:** FastAPI (backend) + React (frontend), instead of Streamlit | Decouples the API from the UI, supports a richer interactive experience (side-by-side clause views, discrepancy highlighting) than Streamlit allows, and scales toward a real deployment |
 
 ---
 
@@ -84,7 +93,7 @@ Core fields to extract from each contract:
 - [ ] Phase 2: Extraction baseline
 - [ ] Phase 3: Cross-version alignment + contradiction detection
 - [ ] Phase 4: RAG for Q&A
-- [ ] Phase 5: UI and deployment
+- [ ] Phase 5: FastAPI backend + React frontend, and deployment
 - [ ] Phase 6: Documentation (README + evaluation results)
 
 ---
@@ -104,6 +113,9 @@ Core fields to extract from each contract:
 # Run evaluation
 python eval/extraction_eval.py --contracts data/raw_contracts --ground-truth data/ground_truth
 
-# Run the UI locally
-streamlit run app/streamlit_app.py
+# Run the API locally
+uvicorn api.main:app --reload
+
+# Run the frontend locally (once added)
+cd frontend && npm run dev
 ```
