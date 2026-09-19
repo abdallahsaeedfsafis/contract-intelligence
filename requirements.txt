@@ -1,0 +1,7 @@
+anthropic
+sentence-transformers
+chromadb
+streamlit
+pypdf
+python-docx
+langdetect

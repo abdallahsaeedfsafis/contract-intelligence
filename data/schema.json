@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Contract Extraction Schema",
+  "description": "Core fields to extract from each bilingual (Arabic/English) contract.",
+  "fields": {
+    "parties": {
+      "type": "array",
+      "description": "The legal entities or individuals entering into the contract, including their roles (e.g., buyer/seller, employer/employee).",
+      "example": [
+        { "name": "Al Falah Trading LLC", "role": "Seller" },
+        { "name": "Northbridge Holdings Inc.", "role": "Buyer" }
+      ]
+    },
+    "effective_date": {
+      "type": "string",
+      "description": "The date on which the contract becomes legally effective, in ISO 8601 format (YYYY-MM-DD) when determinable.",
+      "example": "2024-03-01"
+    },
+    "duration": {
+      "type": "string",
+      "description": "The term or duration of the contract, including renewal conditions if specified.",
+      "example": "24 months from the effective date, automatically renewable for successive 12-month periods unless terminated with 60 days' notice."
+    },
+    "financial_value": {
+      "type": "object",
+      "description": "The total monetary value of the contract, including currency and payment terms if stated.",
+      "example": {
+        "amount": 150000,
+        "currency": "USD",
+        "payment_terms": "Payable in four equal quarterly installments."
+      }
+    },
+    "termination_clauses": {
+      "type": "array",
+      "description": "Conditions and procedures under which either party may terminate the contract.",
+      "example": [
+        "Either party may terminate with 30 days' written notice.",
+        "Immediate termination is permitted in the event of material breach not cured within 15 days."
+      ]
+    },
+    "penalty_clauses": {
+      "type": "array",
+      "description": "Financial or contractual penalties triggered by breach, delay, or non-performance.",
+      "example": [
+        "A penalty of 1% of the contract value per week of delay, up to a maximum of 10%."
+      ]
+    },
+    "governing_law": {
+      "type": "string",
+      "description": "The jurisdiction and legal system that governs interpretation and enforcement of the contract.",
+      "example": "Laws of the United Arab Emirates, with exclusive jurisdiction of the Dubai courts."
+    },
+    "language_precedence_clause": {
+      "type": "string",
+      "description": "Which language version (Arabic or English) prevails in case of conflict or discrepancy between the two versions, if such a clause exists in the contract.",
+      "example": "In case of any conflict or discrepancy between the Arabic and English versions, the Arabic version shall prevail."
+    }
+  }
+}
