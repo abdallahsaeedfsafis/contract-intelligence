@@ -19,6 +19,7 @@ Bilingual (Arabic/English) contracts are the norm across the Arabic-speaking reg
 - **Structured extraction** — pulls parties, effective date, duration, financial value, termination clauses, penalty clauses, governing law, and the language-precedence clause from each language section *independently*, via the Gemini API, so each language's extraction reflects only what that section actually says.
 - **Cross-lingual discrepancy detection** — aligns every extracted field between the Arabic and English versions and judges whether they express the same substantive meaning or a real discrepancy, rating each one's severity (`none` / `minor` / `significant`) rather than just diffing text.
 - **RAG Q&A with citations and hallucination guardrails** — answers questions about a contract in whichever language they're asked (cross-lingual retrieval, so an Arabic question can be answered from an English clause or vice versa), cites the exact clause number(s) used, and is instructed to respond **"Not found in contract"** — not a guess — when the contract doesn't actually address the question.
+- **File upload** — users can upload their own bilingual contract (.txt, .docx, or .pdf) instead of only browsing pre-loaded ones; the system auto-detects the Arabic/English split even without standard section headers, using per-paragraph language detection.
 
 ## Screenshots
 
@@ -33,6 +34,10 @@ Bilingual (Arabic/English) contracts are the norm across the Arabic-speaking reg
 **Cross-lingual Q&A.** Questions are answered in whichever language they were asked, with the specific clause number(s) cited — and a question the contract genuinely doesn't address gets an explicit "Not found in contract," not an invented answer.
 
 ![Cross-lingual Q&A](docs/screenshots/qa-chat.png)
+
+**Contract upload.** A freshly uploaded lease contract — not one of the 15 pre-loaded test contracts — with parties and dates extracted and a live-detected significant discrepancy in the rental value (10,000 vs 8,000 SAR).
+
+![Contract upload](docs/screenshots/upload-view.png)
 
 ## Architecture
 
@@ -77,6 +82,10 @@ Two changes closed the gap. First, the extraction prompt gained an explicit fide
 ### The tradeoff: currency normalization
 
 The literalness fix then surfaced a side effect: the extractor started returning currency exactly as written in the source — e.g. `"درهم إماراتي"` for an Arabic clause — instead of normalizing it to an ISO 4217 code, because "normalize to a code" is itself a form of interpretive rewriting, and the new fidelity rule was actively discouraging exactly that kind of rewriting. Relaxing the fidelity rule again to fix this would have reopened the false-positive risk it was just closed. Instead, a small deterministic post-processing step — `normalize_currency()` in `extraction/extractor.py` — maps around 30 known Arabic and English currency name variants to their ISO codes *after* extraction, and leaves anything it doesn't recognize untouched rather than guessing. `financial_value.currency` accuracy went to 100% on both languages without touching the LLM prompt again, and the extractor's literalness elsewhere stayed intact.
+
+### Auto-splitting uploads without assuming section headers
+
+User uploads can't be assumed to use this project's own `"النسخة العربية"` / `"English Version"` headers, so `split_bilingual_contract()` falls back to per-paragraph language detection, requiring a sustained run of paragraphs in the new language (not just one stray sentence) before it treats that point as the real section boundary. The real bug this surfaced: pypdf's PDF text extraction usually has none of the blank-line paragraph separators `.docx` extraction does, which broke the paragraph-splitting assumption the fallback was originally built on and initially made every PDF upload fail.
 
 ## Known Limitations
 
@@ -125,7 +134,8 @@ contract-intelligence/
 │   └── ground_truth/           # Manually labeled answers + known discrepancies, for evaluation
 │
 ├── extraction/
-│   └── extractor.py            # Structured extraction via Gemini API (JSON schema, currency normalization)
+│   ├── extractor.py             # Structured extraction via Gemini API (JSON schema, currency normalization)
+│   └── parser.py                 # .txt/.docx/.pdf → plain text, for uploaded contracts
 │
 ├── alignment/
 │   └── aligner.py               # Cross-lingual field alignment + LLM-based equivalence/discrepancy judgment
@@ -144,7 +154,7 @@ contract-intelligence/
 │   ├── cache.py                 # In-process response cache
 │   ├── errors.py                 # Gemini error → HTTP translation (429 rate-limit handling)
 │   ├── schemas.py               # Pydantic request/response models
-│   └── routers/                 # extraction, alignment, qa endpoints
+│   └── routers/                 # extraction, alignment, qa, upload endpoints
 │
 ├── frontend/                   # React + Vite app (contract list, extraction/discrepancy/QA views)
 │
