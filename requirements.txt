@@ -4,6 +4,7 @@ sentence-transformers
 chromadb
 fastapi
 uvicorn
+python-multipart
 pypdf
 python-docx
 langdetect

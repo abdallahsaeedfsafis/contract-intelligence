@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import apiClient from "../api/client";
+import UploadContract from "./UploadContract";
 import "./ContractList.css";
 
 function ContractList({ selectedId, onSelect }) {
@@ -26,9 +27,17 @@ function ContractList({ selectedId, onSelect }) {
     };
   }, []);
 
+  const handleUploaded = (contractId) => {
+    setContracts((prev) => (prev.includes(contractId) ? prev : [...prev, contractId].sort()));
+    setStatus("ready");
+    onSelect(contractId);
+  };
+
   return (
     <nav className="contract-list">
       <h2 className="contract-list__title">Contracts</h2>
+
+      <UploadContract onUploaded={handleUploaded} />
 
       {status === "loading" && <p className="loading-note">Loading contracts…</p>}
       {status === "error" && (

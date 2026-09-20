@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ExtractionView from "./ExtractionView";
 import DiscrepancyView from "./DiscrepancyView";
 import QaChat from "./QaChat";
@@ -17,6 +17,12 @@ function ContractDetail({ contractId }) {
   // doesn't re-trigger a Gemini call for data already fetched this session.
   const [extractionCache, setExtractionCache] = useState({});
   const [discrepancyCache, setDiscrepancyCache] = useState({});
+
+  // Land on Extracted Fields whenever the selected contract changes (e.g. after a
+  // fresh upload) rather than leaving the user on whatever tab a previous contract was on.
+  useEffect(() => {
+    setActiveTab("extraction");
+  }, [contractId]);
 
   return (
     <section className="contract-detail">

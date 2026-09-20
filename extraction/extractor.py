@@ -6,10 +6,13 @@ reference below) once Anthropic credits are available.
 
 import json
 import os
+import re
 from pathlib import Path
 
+import langdetect
 from google import genai
 from google.genai import types
+from langdetect.lang_detect_exception import LangDetectException
 
 # --- Anthropic reference (swap back in once credits are available) ---------------
 # import anthropic
@@ -47,6 +50,13 @@ MODEL = "gemini-3.1-flash-lite"
 
 ARABIC_HEADER = "النسخة العربية"
 ENGLISH_HEADER = "English Version"
+
+# Number of consecutive paragraphs of the "other" language required before we treat a
+# language change as a real section boundary, rather than a single stray sentence.
+AUTO_SPLIT_SUSTAINED_RUN = 2
+
+langdetect.DetectorFactory.seed = 0  # deterministic detection
+_ARABIC_CHAR_RE = re.compile(r"[؀-ۿݐ-ݿ]")
 
 # Maps common Arabic/English currency names to their ISO 4217 code. Keys are matched as
 # case-insensitive substrings against the extracted currency value, longest-first, so a
@@ -122,14 +132,74 @@ def normalize_currency(value: str) -> str:
     return value
 
 
+def _detect_paragraph_language(paragraph: str) -> str | None:
+    """Return "arabic", "english", or None (paragraph too short/ambiguous to classify)."""
+    stripped = paragraph.strip()
+    if not stripped:
+        return None
+    try:
+        detected = langdetect.detect(stripped)
+    except LangDetectException:
+        detected = None
+    if detected == "ar":
+        return "arabic"
+    if detected == "en":
+        return "english"
+    # langdetect struggles on short paragraphs (headings, dates, numbers); fall back to a
+    # simple script check rather than leaving them unclassified.
+    return "arabic" if _ARABIC_CHAR_RE.search(stripped) else "english"
+
+
+def _auto_split_bilingual(text: str) -> dict:
+    """Best-effort split for contracts that don't use the standard section headers:
+    scan paragraph by paragraph and split where the dominant language changes for a
+    sustained run of paragraphs, rather than on a single stray sentence."""
+    paragraphs = [p for p in re.split(r"\n\s*\n", text) if p.strip()]
+    labels = [_detect_paragraph_language(p) for p in paragraphs]
+
+    split_index = None
+    for i in range(1, len(labels)):
+        prior_labels = [label for label in labels[:i] if label]
+        if not prior_labels:
+            continue
+        window = [label for label in labels[i : i + AUTO_SPLIT_SUSTAINED_RUN] if label]
+        if len(window) < AUTO_SPLIT_SUSTAINED_RUN:
+            continue
+        new_language = window[0]
+        if new_language != prior_labels[-1] and all(label == new_language for label in window):
+            split_index = i
+            break
+
+    error = ValueError(
+        "Could not automatically detect a bilingual Arabic/English split in this document. "
+        "Please confirm it actually contains both an Arabic section and an English section."
+    )
+    if split_index is None:
+        raise error
+
+    first_block = "\n\n".join(paragraphs[:split_index]).strip()
+    second_block = "\n\n".join(paragraphs[split_index:]).strip()
+    first_language = next((label for label in labels[:split_index] if label), None)
+    second_language = next((label for label in labels[split_index:] if label), None)
+
+    if first_language == "arabic" and second_language == "english":
+        return {"arabic": first_block, "english": second_block}
+    if first_language == "english" and second_language == "arabic":
+        return {"arabic": second_block, "english": first_block}
+    raise error
+
+
 def split_bilingual_contract(text: str) -> dict:
-    """Split a contract's raw text into its Arabic and English sections."""
+    """Split a contract's raw text into its Arabic and English sections.
+
+    Looks for the standard "النسخة العربية" / "English Version" headers first; if a
+    contract (e.g. a user upload) doesn't use them, falls back to auto-detecting the
+    split via per-paragraph language detection (see _auto_split_bilingual).
+    """
     ar_idx = text.find(ARABIC_HEADER)
     en_idx = text.find(ENGLISH_HEADER)
     if ar_idx == -1 or en_idx == -1:
-        raise ValueError(
-            f"Could not find both section headers ('{ARABIC_HEADER}' and '{ENGLISH_HEADER}') in the contract text."
-        )
+        return _auto_split_bilingual(text)
 
     if ar_idx < en_idx:
         arabic_start = text.find("\n", ar_idx) + 1

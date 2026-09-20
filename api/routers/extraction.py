@@ -22,7 +22,9 @@ router = APIRouter(tags=["extraction"])
 
 @router.get("/contracts")
 def list_contracts() -> list[str]:
-    return sorted(p.stem for p in CONTRACTS_DIR.glob("contract_*.txt"))
+    # "*.txt" (not "contract_*.txt") so uploaded contracts - which use an "upload_" id
+    # prefix, not "contract_" - also show up in the list.
+    return sorted(p.stem for p in CONTRACTS_DIR.glob("*.txt"))
 
 
 @router.post("/contracts/{contract_id}/extract", response_model=ExtractionResponse)

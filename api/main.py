@@ -16,7 +16,7 @@ load_dotenv()  # so extraction/alignment/rag modules can read GEMINI_API_KEY at 
 from fastapi import FastAPI  # noqa: E402
 from fastapi.middleware.cors import CORSMiddleware  # noqa: E402
 
-from api.routers import alignment, extraction, qa  # noqa: E402
+from api.routers import alignment, extraction, qa, upload  # noqa: E402
 
 app = FastAPI(title="Bilingual Contract Intelligence API")
 
@@ -31,6 +31,7 @@ app.add_middleware(
 app.include_router(extraction.router)
 app.include_router(alignment.router)
 app.include_router(qa.router)
+app.include_router(upload.router)
 
 
 @app.get("/")

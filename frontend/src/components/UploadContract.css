@@ -1,0 +1,31 @@
+.upload-contract {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--border);
+}
+
+.upload-contract__button {
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  border: 1px dashed var(--border);
+  background: transparent;
+  color: var(--ink);
+  font-size: var(--text-small);
+  font-weight: 600;
+  text-align: center;
+}
+
+.upload-contract__button:hover:not(:disabled) {
+  border-color: var(--ink);
+  background: var(--paper);
+}
+
+.upload-contract__button:disabled {
+  color: var(--muted);
+  cursor: not-allowed;
+}
+
+.upload-contract__error {
+  margin-top: var(--space-2);
+  font-size: var(--text-small);
+  color: var(--seal-red);
+}
