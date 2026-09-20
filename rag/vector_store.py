@@ -62,6 +62,14 @@ def build_contract_index(contract_id: str, force: bool = False) -> int:
 
     Returns the number of clauses indexed. If the contract is already indexed and
     force=False, does nothing and returns 0.
+
+    Idempotent and safe to call unconditionally before every question (see
+    rag/qa_engine.py's caller) rather than assuming indexing already happened once and
+    persisted - on a host with ephemeral storage (e.g. Render's free tier), chroma_db/ is
+    wiped on every restart/redeploy, so "already indexed" is only ever true within a
+    single running container's lifetime. The first question about a contract after a
+    fresh start just rebuilds its index on demand; verified this works from a totally
+    empty chroma_db/ with no prior state.
     """
     collection = _get_collection()
 

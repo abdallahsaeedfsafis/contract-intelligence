@@ -1,6 +1,5 @@
 anthropic
 google-genai
-sentence-transformers
 chromadb
 fastapi
 uvicorn

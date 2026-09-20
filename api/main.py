@@ -3,6 +3,7 @@
 Run from the project root: uvicorn api.main:app --reload
 """
 
+import os
 import sys
 from pathlib import Path
 
@@ -20,9 +21,15 @@ from api.routers import alignment, extraction, qa, upload  # noqa: E402
 
 app = FastAPI(title="Bilingual Contract Intelligence API")
 
+# FRONTEND_URL defaults to Vite's local dev port; in production, set it to the deployed
+# frontend's URL (e.g. the Vercel domain). Comma-separate multiple origins if needed,
+# e.g. "https://app.vercel.app,https://staging.vercel.app".
+_frontend_url = os.environ.get("FRONTEND_URL", "http://localhost:5173")
+allow_origins = [origin.strip() for origin in _frontend_url.split(",") if origin.strip()]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # Vite's default dev port
+    allow_origins=allow_origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
