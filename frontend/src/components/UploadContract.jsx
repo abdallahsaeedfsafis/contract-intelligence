@@ -69,6 +69,9 @@ function UploadContract({ onUploaded }) {
         onChange={handleFileChange}
         hidden
       />
+      <p className="upload-contract__note">
+        Uploaded contracts are temporary for this demo and may be cleared if the server restarts.
+      </p>
       {status === "error" && <p className="upload-contract__error">{errorMessage}</p>}
     </div>
   );
