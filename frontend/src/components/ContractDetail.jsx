@@ -10,7 +10,7 @@ const TABS = [
   { id: "ask", label: "Ask a Question" },
 ];
 
-function ContractDetail({ contractId }) {
+function ContractDetail({ contractId, extractionMethod }) {
   const [activeTab, setActiveTab] = useState("extraction");
 
   // Per-contract result caches, kept at this level so switching tabs back and forth
@@ -28,6 +28,9 @@ function ContractDetail({ contractId }) {
     <section className="contract-detail">
       <header className="contract-detail__header">
         <h1>{contractId}</h1>
+        {extractionMethod === "ocr" && (
+          <p className="contract-detail__ocr-note">Text extracted via OCR — verify accuracy</p>
+        )}
       </header>
 
       <div className="contract-detail__tabs">

@@ -13,6 +13,7 @@ from api.schemas import ContractUploadResponse  # noqa: E402
 from extraction.extractor import split_bilingual_contract  # noqa: E402
 from extraction.parser import (  # noqa: E402
     EmptyDocumentError,
+    ScannedDocumentOCRError,
     UnsupportedFileTypeError,
     extract_text_from_file,
 )
@@ -55,8 +56,12 @@ async def upload_contract(file: UploadFile) -> ContractUploadResponse:
     temp_path = CONTRACTS_DIR / f"_upload_tmp_{contract_id}{extension}"
     temp_path.write_bytes(contents)
     try:
-        raw_text = extract_text_from_file(str(temp_path))
-    except (UnsupportedFileTypeError, EmptyDocumentError) as exc:
+        # A scanned PDF falls back to OCR here (see extraction/parser.py), which is far
+        # slower than direct text extraction - the frontend gives this call extra time
+        # to account for that (see UploadContract.jsx), independent of and not affecting
+        # the Gemini-call rate-limit/429 handling used elsewhere in the API.
+        raw_text, extraction_method = extract_text_from_file(str(temp_path))
+    except (UnsupportedFileTypeError, EmptyDocumentError, ScannedDocumentOCRError) as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
     finally:
         temp_path.unlink(missing_ok=True)
@@ -74,4 +79,5 @@ async def upload_contract(file: UploadFile) -> ContractUploadResponse:
     return ContractUploadResponse(
         contract_id=contract_id,
         message=f"Uploaded and processed '{original_name}'.",
+        extraction_method=extraction_method,
     )

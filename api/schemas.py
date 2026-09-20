@@ -8,6 +8,7 @@ from pydantic import BaseModel
 class ContractUploadResponse(BaseModel):
     contract_id: str
     message: str
+    extraction_method: str  # "direct" | "ocr"
 
 
 class ExtractionResponse(BaseModel):

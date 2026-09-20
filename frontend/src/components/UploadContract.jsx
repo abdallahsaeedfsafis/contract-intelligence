@@ -3,6 +3,11 @@ import apiClient from "../api/client";
 import "./UploadContract.css";
 
 const ALLOWED_EXTENSIONS = [".txt", ".docx", ".pdf"];
+// A scanned PDF falls back to server-side OCR, which is much slower than direct text
+// extraction - give this call a generous ceiling rather than the client default. This is
+// independent of, and doesn't affect, the Gemini-call rate-limit (429) handling used
+// elsewhere in the app (OCR never calls Gemini).
+const UPLOAD_TIMEOUT_MS = 120_000;
 
 function UploadContract({ onUploaded }) {
   const inputRef = useRef(null);
@@ -30,10 +35,11 @@ function UploadContract({ onUploaded }) {
     apiClient
       .post("/contracts/upload", formData, {
         headers: { "Content-Type": "multipart/form-data" },
+        timeout: UPLOAD_TIMEOUT_MS,
       })
       .then((response) => {
         setStatus("idle");
-        onUploaded(response.data.contract_id);
+        onUploaded(response.data.contract_id, response.data.extraction_method);
       })
       .catch((error) => {
         const detail = error?.response?.data?.detail;

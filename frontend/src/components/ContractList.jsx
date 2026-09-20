@@ -3,7 +3,7 @@ import apiClient from "../api/client";
 import UploadContract from "./UploadContract";
 import "./ContractList.css";
 
-function ContractList({ selectedId, onSelect }) {
+function ContractList({ selectedId, onSelect, onContractUploaded }) {
   const [contracts, setContracts] = useState([]);
   const [status, setStatus] = useState("loading");
 
@@ -27,10 +27,11 @@ function ContractList({ selectedId, onSelect }) {
     };
   }, []);
 
-  const handleUploaded = (contractId) => {
+  const handleUploaded = (contractId, extractionMethod) => {
     setContracts((prev) => (prev.includes(contractId) ? prev : [...prev, contractId].sort()));
     setStatus("ready");
     onSelect(contractId);
+    onContractUploaded?.(contractId, extractionMethod);
   };
 
   return (

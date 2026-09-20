@@ -9,3 +9,5 @@ pypdf
 python-docx
 langdetect
 python-dotenv
+pytesseract
+pdf2image

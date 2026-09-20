@@ -13,6 +13,15 @@
   font-variant-numeric: tabular-nums;
 }
 
+.contract-detail__ocr-note {
+  display: inline-block;
+  margin-top: var(--space-2);
+  padding: 2px var(--space-2);
+  font-size: var(--text-small);
+  color: var(--muted);
+  border: 1px dashed var(--border);
+}
+
 .contract-detail__tabs {
   display: flex;
   gap: var(--space-5);
