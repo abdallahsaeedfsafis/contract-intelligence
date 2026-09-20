@@ -150,24 +150,57 @@ def _detect_paragraph_language(paragraph: str) -> str | None:
     return "arabic" if _ARABIC_CHAR_RE.search(stripped) else "english"
 
 
+def _split_into_paragraphs(text: str) -> list[str]:
+    """Split text into paragraph-like units for language-shift detection.
+
+    Prefers blank-line-separated paragraphs (how .txt/.docx text is structured here).
+    But raw PDF text extraction commonly has no blank lines at all - pypdf's
+    extract_text() joins every line with a single "\\n" - which would otherwise
+    collapse an entire multi-page contract into one undetectable block. When blank-line
+    splitting finds nothing to split on, fall back to one unit per non-empty line.
+    """
+    blank_line_paragraphs = [p for p in re.split(r"\n\s*\n", text) if p.strip()]
+    if len(blank_line_paragraphs) > 1:
+        return blank_line_paragraphs
+    return [line for line in text.split("\n") if line.strip()]
+
+
+def _sustained_run(labels: list, reverse: bool) -> str | None:
+    """The language of a sustained run at the start (reverse=False) or end (reverse=True)
+    of a label list, or None if the first/last AUTO_SPLIT_SUSTAINED_RUN non-None labels
+    aren't all the same language."""
+    ordered = labels[::-1] if reverse else labels
+    run = [label for label in ordered if label][:AUTO_SPLIT_SUSTAINED_RUN]
+    if len(run) == AUTO_SPLIT_SUSTAINED_RUN and len(set(run)) == 1:
+        return run[0]
+    return None
+
+
 def _auto_split_bilingual(text: str) -> dict:
     """Best-effort split for contracts that don't use the standard section headers:
-    scan paragraph by paragraph and split where the dominant language changes for a
-    sustained run of paragraphs, rather than on a single stray sentence."""
-    paragraphs = [p for p in re.split(r"\n\s*\n", text) if p.strip()]
+    scan paragraph by paragraph and split at the point where a sustained run of one
+    language is immediately followed by a sustained run of the other.
+
+    Requiring a sustained run on *both* sides of the boundary (not just the new side)
+    matters in practice: a single stray line in the "wrong" language right before the
+    real section boundary - e.g. an English document title sitting just above a large
+    Arabic block, common in PDF text extraction with no paragraph spacing - would
+    otherwise get mistaken for the entire English section, and everything else
+    (including the real English section) would collapse into "Arabic".
+    """
+    paragraphs = _split_into_paragraphs(text)
     labels = [_detect_paragraph_language(p) for p in paragraphs]
 
     split_index = None
+    first_language = None
+    second_language = None
     for i in range(1, len(labels)):
-        prior_labels = [label for label in labels[:i] if label]
-        if not prior_labels:
-            continue
-        window = [label for label in labels[i : i + AUTO_SPLIT_SUSTAINED_RUN] if label]
-        if len(window) < AUTO_SPLIT_SUSTAINED_RUN:
-            continue
-        new_language = window[0]
-        if new_language != prior_labels[-1] and all(label == new_language for label in window):
+        before_language = _sustained_run(labels[:i], reverse=True)
+        after_language = _sustained_run(labels[i:], reverse=False)
+        if before_language and after_language and before_language != after_language:
             split_index = i
+            first_language = before_language
+            second_language = after_language
             break
 
     error = ValueError(
@@ -177,10 +210,11 @@ def _auto_split_bilingual(text: str) -> dict:
     if split_index is None:
         raise error
 
+    # Note: first_language/second_language are the *dominant* language of each side (from
+    # the sustained-run check above), not just the first labeled paragraph - a stray line
+    # in the "wrong" language at the very start of a block must not flip which block it is.
     first_block = "\n\n".join(paragraphs[:split_index]).strip()
     second_block = "\n\n".join(paragraphs[split_index:]).strip()
-    first_language = next((label for label in labels[:split_index] if label), None)
-    second_language = next((label for label in labels[split_index:] if label), None)
 
     if first_language == "arabic" and second_language == "english":
         return {"arabic": first_block, "english": second_block}
