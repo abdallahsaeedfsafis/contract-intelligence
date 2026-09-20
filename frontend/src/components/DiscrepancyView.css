@@ -1,10 +1,10 @@
 .discrepancy-view__summary {
   display: flex;
   gap: var(--space-6);
-  padding: var(--space-4);
-  margin-bottom: var(--space-4);
-  border: 1px solid var(--color-border);
-  background: var(--color-surface);
+  padding: var(--space-4) var(--space-5);
+  margin-bottom: var(--space-5);
+  border: 1px solid var(--border);
+  background: var(--surface);
 }
 
 .discrepancy-view__summary-number {
@@ -14,9 +14,33 @@
 }
 
 .discrepancy-field {
-  border: 1px solid var(--color-border);
-  background: var(--color-surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--border);
+  background: var(--surface);
   margin-bottom: var(--space-3);
+}
+
+/* Severity signals - color is functional here, not decorative: red only ever means a
+   significant discrepancy, teal only ever means a confirmed match. */
+.discrepancy-field--significant {
+  border-left-color: var(--seal-red);
+}
+
+.discrepancy-field--significant .discrepancy-field__values {
+  background: rgba(140, 47, 57, 0.05);
+}
+
+.discrepancy-field--match {
+  border-left-color: var(--verified-teal);
+}
+
+.discrepancy-field--minor {
+  border-left-color: var(--muted);
+}
+
+.discrepancy-field--uncertain {
+  border-left-style: dashed;
+  border-left-color: var(--muted);
 }
 
 .discrepancy-field__header {
@@ -25,12 +49,12 @@
   justify-content: space-between;
   gap: var(--space-3);
   padding: var(--space-3) var(--space-4);
-  border-bottom: 1px solid var(--color-border);
-  background: var(--color-paper);
+  border-bottom: 1px solid var(--border);
+  background: var(--paper);
 }
 
 .discrepancy-field__header h4 {
-  font-size: 14px;
+  font-size: var(--text-body);
 }
 
 .discrepancy-field__values {
@@ -40,8 +64,9 @@
 
 .discrepancy-field__cell {
   padding: var(--space-4);
-  font-size: 14px;
-  border-right: 1px solid var(--color-border);
+  font-size: var(--text-body);
+  line-height: 1.6;
+  border-right: 1px solid var(--border);
 }
 
 .discrepancy-field__cell:last-child {
@@ -50,7 +75,7 @@
 
 .discrepancy-field__explanation {
   padding: var(--space-3) var(--space-4);
-  font-size: 13px;
-  color: var(--color-muted);
-  border-top: 1px solid var(--color-border);
+  font-size: var(--text-small);
+  color: var(--muted);
+  border-top: 1px solid var(--border);
 }

@@ -7,9 +7,9 @@
 .qa-chat__thread {
   flex: 1;
   overflow-y: auto;
-  border: 1px solid var(--color-border);
-  background: var(--color-surface);
-  padding: var(--space-4);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  padding: var(--space-5);
   margin-bottom: var(--space-3);
   min-height: 240px;
 }
@@ -17,28 +17,31 @@
 .qa-chat__exchange + .qa-chat__exchange {
   margin-top: var(--space-5);
   padding-top: var(--space-4);
-  border-top: 1px solid var(--color-border);
+  border-top: 1px solid var(--border);
 }
 
 .qa-chat__question {
+  font-size: var(--text-body);
   font-weight: 600;
   margin-bottom: var(--space-2);
 }
 
 .qa-chat__question::before {
   content: "Q  ";
-  color: var(--color-muted);
+  color: var(--muted);
   font-weight: 400;
 }
 
 .qa-chat__answer {
-  border-left: 3px solid var(--color-verified-teal);
+  border-left: 3px solid var(--verified-teal);
   padding: var(--space-1) var(--space-3);
+  font-size: var(--text-body);
+  line-height: 1.6;
 }
 
 .qa-chat__answer--not-found {
-  border-left-color: var(--color-muted);
-  color: var(--color-muted);
+  border-left-color: var(--muted);
+  color: var(--muted);
   font-style: italic;
 }
 
@@ -49,12 +52,12 @@
 }
 
 .qa-chat__citation {
-  font-size: 11px;
+  font-size: var(--text-small);
   font-weight: 600;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  color: var(--color-muted);
-  border: 1px solid var(--color-border);
+  color: var(--muted);
+  border: 1px solid var(--border);
   padding: 2px var(--space-2);
 }
 
@@ -66,27 +69,27 @@
 .qa-chat__input-row input {
   flex: 1;
   padding: var(--space-3);
-  border: 1px solid var(--color-border);
-  background: var(--color-surface);
-  color: var(--color-ink);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  color: var(--ink);
 }
 
 .qa-chat__input-row input:focus {
-  outline: 2px solid var(--color-ink);
+  outline: 2px solid var(--ink);
   outline-offset: -1px;
 }
 
 .qa-chat__input-row button {
   padding: var(--space-3) var(--space-5);
-  border: 1px solid var(--color-ink);
-  background: var(--color-ink);
-  color: var(--color-paper);
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
   font-weight: 600;
 }
 
 .qa-chat__input-row button:disabled {
-  border-color: var(--color-border);
-  background: var(--color-border);
-  color: var(--color-muted);
+  border-color: var(--border);
+  background: var(--border);
+  color: var(--muted);
   cursor: not-allowed;
 }

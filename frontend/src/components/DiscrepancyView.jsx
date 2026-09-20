@@ -19,6 +19,15 @@ function statusBadgeLabel(field) {
   return "Uncertain";
 }
 
+function discrepancyFieldModifier(field) {
+  if (field.status === "match") return "discrepancy-field--match";
+  if (field.status === "discrepancy" && field.severity === "significant") {
+    return "discrepancy-field--significant";
+  }
+  if (field.status === "discrepancy") return "discrepancy-field--minor";
+  return "discrepancy-field--uncertain";
+}
+
 function DiscrepancyView({ contractId, cached, onFetched }) {
   const { data: report, status, errorInfo, retry } = useCachedFetch({
     contractId,
@@ -68,7 +77,7 @@ function DiscrepancyView({ contractId, cached, onFetched }) {
         <div>
           <span
             className="discrepancy-view__summary-number"
-            style={report.significant_discrepancy_count > 0 ? { color: "var(--color-seal-red)" } : undefined}
+            style={report.significant_discrepancy_count > 0 ? { color: "var(--seal-red)" } : undefined}
           >
             {report.significant_discrepancy_count}
           </span>
@@ -77,7 +86,7 @@ function DiscrepancyView({ contractId, cached, onFetched }) {
       </div>
 
       {report.fields.map((field) => (
-        <div className="discrepancy-field" key={field.field_name}>
+        <div className={`discrepancy-field ${discrepancyFieldModifier(field)}`} key={field.field_name}>
           <div className="discrepancy-field__header">
             <h4>{humanizeFieldName(field.field_name)}</h4>
             <span className={statusBadgeClass(field)}>{statusBadgeLabel(field)}</span>

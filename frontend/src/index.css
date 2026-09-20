@@ -1,15 +1,26 @@
 :root {
-  --color-ink: #1b2430;
-  --color-paper: #f5f6f8;
-  --color-seal-red: #8c2f39;
-  --color-verified-teal: #2f6b5e;
-  --color-border: #d8dbe0;
-  --color-muted: #5a6270;
-  --color-surface: #ffffff;
+  /* Ledger design system - functional colors only, no decorative palette */
+  --ink: #1b2430; /* primary text, headers */
+  --paper: #f5f6f8; /* page background */
+  --seal-red: #8c2f39; /* discrepancy / alert */
+  --verified-teal: #2f6b5e; /* match / verified */
+  --border: #d8dbe0; /* hairlines */
+  --muted: #5a6270; /* secondary text */
+
+  /* Not part of the named palette - a plain white sheet is what makes panels read as
+     "paper on a desk" against --paper, rather than a UI-kit card with a shadow. */
+  --surface: #ffffff;
 
   --font-sans:
     "IBM Plex Sans Arabic", "IBM Plex Sans", "Noto Sans Arabic", "Noto Sans", system-ui,
     -apple-system, "Segoe UI", Tahoma, Arial, sans-serif;
+
+  /* Type scale */
+  --text-h1: 21px;
+  --text-h2: 15px;
+  --text-label: 12px;
+  --text-body: 14px;
+  --text-small: 12px;
 
   --space-1: 4px;
   --space-2: 8px;
@@ -31,11 +42,11 @@ body,
 
 body {
   margin: 0;
-  background: var(--color-paper);
-  color: var(--color-ink);
+  background: var(--paper);
+  color: var(--ink);
   font-family: var(--font-sans);
-  font-size: 15px;
-  line-height: 1.5;
+  font-size: var(--text-body);
+  line-height: 1.55;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -45,7 +56,16 @@ h3,
 h4 {
   margin: 0;
   font-weight: 600;
-  color: var(--color-ink);
+  color: var(--ink);
+}
+
+h1 {
+  font-size: var(--text-h1);
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-size: var(--text-h2);
 }
 
 p {
@@ -56,11 +76,13 @@ button {
   font-family: inherit;
   font-size: inherit;
   cursor: pointer;
+  border-radius: 0;
 }
 
 input {
   font-family: inherit;
   font-size: inherit;
+  border-radius: 0;
 }
 
 /* Text blocks whose language is determined at render time (Arabic vs English content) */
@@ -75,12 +97,21 @@ input {
 }
 
 .muted {
-  color: var(--color-muted);
+  color: var(--muted);
+}
+
+.label {
+  font-size: var(--text-label);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
 }
 
 .hairline-box {
-  border: 1px solid var(--color-border);
-  background: var(--color-surface);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 0;
 }
 
 .status-badge {
@@ -88,7 +119,7 @@ input {
   align-items: center;
   gap: var(--space-1);
   padding: 2px var(--space-2);
-  font-size: 12px;
+  font-size: var(--text-small);
   font-weight: 600;
   letter-spacing: 0.02em;
   text-transform: uppercase;
@@ -96,38 +127,38 @@ input {
 }
 
 .status-badge--match {
-  color: var(--color-verified-teal);
+  color: var(--verified-teal);
 }
 
 .status-badge--discrepancy {
-  color: var(--color-seal-red);
+  color: var(--seal-red);
 }
 
 .status-badge--minor {
-  color: var(--color-muted);
+  color: var(--muted);
 }
 
 .status-badge--uncertain {
-  color: var(--color-muted);
+  color: var(--muted);
 }
 
 .loading-note,
 .error-note {
   padding: var(--space-4);
-  font-size: 14px;
-  color: var(--color-muted);
+  font-size: var(--text-body);
+  color: var(--muted);
 }
 
 .error-note {
-  color: var(--color-seal-red);
+  color: var(--seal-red);
 }
 
 .rate-limit-note {
   padding: var(--space-4);
-  font-size: 14px;
-  color: var(--color-muted);
-  border: 1px dashed var(--color-border);
-  background: var(--color-surface);
+  font-size: var(--text-body);
+  color: var(--muted);
+  border: 1px dashed var(--border);
+  background: var(--surface);
 }
 
 .inline-retry-button {
@@ -136,6 +167,6 @@ input {
   border: 1px solid currentColor;
   background: transparent;
   color: inherit;
-  font-size: 13px;
+  font-size: var(--text-small);
   font-weight: 600;
 }
